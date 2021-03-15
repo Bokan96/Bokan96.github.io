@@ -14,7 +14,7 @@ body {
 }
 
 #page-wraper {
-    background: #4AA0DD no-repeat center center fixed;
+    background: #295a7d no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -33,7 +33,7 @@ textarea {
 }
 
 a {
-	color: #9FF;
+	color: #4CC;
     text-decoration: none;
 }
 
