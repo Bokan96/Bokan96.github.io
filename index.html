@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>BoBo Portfolio</title>
+    <title>Bokan96 Online CV</title>
     <meta name="description" content="Portfolio and CV of Bojan Božović - Software Developer" />
     <meta name="author" content="Bokan96" />
     <!-- Bootstrap core CSS -->
@@ -64,8 +64,8 @@ Prvi susret sa programiranjem mi je i bio preko Inspect Elementa uz igranje sa K
               <a href="#"><img src="assets/images/profilna.jpg" alt="Bokan96" loading="lazy" /></a>
             </div>
             <div class="author-content">
-              <h4>Bojan Božović</h4>
-              <span>@bokan96</span>
+              <h4>Bokan96</h4>
+              <span>Bojan Božović</span>
             </div>
             <nav class="main-nav" role="navigation">
               <ul class="main-menu">
@@ -91,7 +91,7 @@ Prvi susret sa programiranjem mi je i bio preko Inspect Elementa uz igranje sa K
               </ul>
             </div>
             <div class="copyright-text">
-              <p>Copyright 2025 Bojan Bozovic</p>
+              <p>Copyright 2025 Bokan96</p>
             </div>
           </div>
         </div>
@@ -190,7 +190,12 @@ Prvi susret sa programiranjem mi je i bio preko Inspect Elementa uz igranje sa K
               <div class="service-item">
                 <i class="fa fa-check-square-o"></i>
                 <h4>Iskustvo</h4>
-                <p>Višegodišnje iskustvo u saradnji sa drugim programerima kao i solo programiranju, 6 meseci rada kao tehnička podrška i 2 godine rada kao nastavnik matematike</p>
+                <ul style="padding-left: 20px; list-style-type: disc;">
+                  <li>Višegodišnje iskustvo u saradnji sa drugim programerima</li>
+                  <li>Višegodišnje iskustvo u solo programiranju</li>
+                  <li>6 meseci rada kao tehnička podrška</li>
+                  <li>2 godine rada kao nastavnik matematike</li>
+                </ul>
               </div>
             </div>
             <div class="col-md-6 col-sm-12">
@@ -444,6 +449,23 @@ Prvi susret sa programiranjem mi je i bio preko Inspect Elementa uz igranje sa K
           });
         }
       });
+      
+      // Create floating particles
+      function createParticles() {
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 30; // Adjust for more/less particles
+        
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'particle';
+          particle.style.left = Math.random() * 100 + '%';
+          particle.style.animationDelay = Math.random() * 20 + 's';
+          particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+          particlesContainer.appendChild(particle);
+        }
+      }
+      
+      createParticles();
     </script>
   </body>
 </html>
