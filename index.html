@@ -3,17 +3,51 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Bokan96 Online CV</title>
-    <meta name="description" content="" />
+    <title>BoBo Portfolio</title>
+    <meta name="description" content="Portfolio and CV of Bojan Božović - Software Developer" />
     <meta name="author" content="Bokan96" />
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Additional CSS Files -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/fontawesome.css" />
     <link rel="stylesheet" href="assets/css/tooplate-style.css" />
     <link rel="stylesheet" href="assets/css/owl.css" />
     <link rel="stylesheet" href="assets/css/lightbox.css" />
+    
+    <style>
+      /* Image optimization styles */
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      .lazy {
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .lazy.loaded {
+        opacity: 1;
+      }
+      /* Mobile improvements */
+      @media (max-width: 768px) {
+        .section-heading span {
+          font-size: 14px;
+          line-height: 1.5;
+        }
+        .service-item {
+          margin-bottom: 30px;
+        }
+        .isotope-toolbar label {
+          margin: 5px;
+          display: inline-block;
+        }
+      }
+      /* Replace deprecated font tag styles */
+      .highlight-yellow {
+        color: #ffc107;
+        font-weight: bold;
+      }
+    </style>
   </head>
 <!--
 Prvi susret sa programiranjem mi je i bio preko Inspect Elementa uz igranje sa Kolačićima i Chrome Local Storage
@@ -27,11 +61,11 @@ Prvi susret sa programiranjem mi je i bio preko Inspect Elementa uz igranje sa K
           <i class="fa fa-times" id="menu-close"></i>
           <div class="container">
             <div class="image">
-              <a href="#"><img src="assets/images/profilna.jpg" alt="Bokan96" /></a>
+              <a href="#"><img src="assets/images/profilna.jpg" alt="Bokan96" loading="lazy" /></a>
             </div>
             <div class="author-content">
-              <h4>Bokan96</h4>
-              <span>Bojan Božović</span>
+              <h4>Bojan Božović</h4>
+              <span>@bokan96</span>
             </div>
             <nav class="main-nav" role="navigation">
               <ul class="main-menu">
@@ -43,21 +77,21 @@ Prvi susret sa programiranjem mi je i bio preko Inspect Elementa uz igranje sa K
             <div class="social-network">
               <ul class="soial-icons">
                 <li>
-                  <a href="https://www.facebook.com/pbbokan"><i class="fa fa-facebook"></i></a>
+                  <a href="https://www.facebook.com/pbbokan" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
                 </li>
                 <li>
-                  <a href="https://www.instagram.com/lehoi_luro"><i class="fa fa-instagram"></i></a>
+                  <a href="https://www.instagram.com/lehoi_luro" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
                 </li>
                 <li>
-                  <a href="https://github.com/bokan96"><i class="fa fa-github"></i></a>
+                  <a href="https://github.com/bokan96" aria-label="GitHub"><i class="fa fa-github"></i></a>
                 </li>
                 <li>
-                  <a href="#"><i class="fa fa-headphones"></i></a>
+                  <a href="#" aria-label="Music"><i class="fa fa-headphones"></i></a>
                 </li>
               </ul>
             </div>
             <div class="copyright-text">
-              <p>Copyright 2017 Bokan96</p>
+              <p>Copyright 2025 Bojan Bozovic</p>
             </div>
           </div>
         </div>
@@ -66,7 +100,7 @@ Prvi susret sa programiranjem mi je i bio preko Inspect Elementa uz igranje sa K
       <section class="section about-me" data-section="section1">
         <div class="container">
         <div class="top-header">
-        	<img src="assets/images/pozadina.jpg" alt="pogled sa Gradine" />
+        	<img src="assets/images/pozadina.jpg" alt="pogled sa Gradine" loading="lazy" />
         </div>
           <div class="section-heading">         
             <h2>Biografija</h2>
@@ -78,7 +112,7 @@ Prvi susret sa programiranjem mi je i bio preko Inspect Elementa uz igranje sa K
               <div class="col-md-8">
                 <div class="left-text">
                   <h4>Detinjstvo, počeci i interesovanja</h4>
-                  <p>2010. godine, kada sam imao 14. godina, sam počeo sebe učiti programiranje igrajući se sa skriptama iz manjih igrica. Sledeće godine je moj prvi mod Grudvanje za CounterStrike2D postao oficijalno prihvaćen na <a rel="nofollow" href="http://www.unrealsoftware.de">unrealsoftware.de</a> (ura!) gde i nastavljam vežbati <font color="yellow"><b>LUA jezik</b></font> kao USGN zvanični modder, mapper i gamedesigner. Moji kodovi su preuzimani svega 350 puta ali sam učestvovao u grupnom projektu TF2 modifikacije koji je pokrivao desetak aktivnih servera. </p>
+                  <p>2010. godine, kada sam imao 14. godina, sam počeo sebe učiti programiranje igrajući se sa skriptama iz manjih igrica. Sledeće godine je moj prvi mod Grudvanje za CounterStrike2D postao oficijalno prihvaćen na <a rel="nofollow" href="http://www.unrealsoftware.de">unrealsoftware.de</a> (ura!) gde i nastavljam vežbati <span class="highlight-yellow">LUA jezik</span> kao USGN zvanični modder, mapper i gamedesigner. Moji kodovi su preuzimani svega 350 puta ali sam učestvovao u grupnom projektu TF2 modifikacije koji je pokrivao desetak aktivnih servera. </p>
                   <p>Pored programiranja i matematike oduvek sam bio aktivan igrač fudbala i futsala. Od 5. do 8. razreda sam učestvovao u svim timskim sportovima svoje osnovne škole, u srednjoj počinjem da igram futsal po turnirima a sa 16. godina postajem registrovan igrač FK Prilika.</p>
                   <div class="white-button">
                     <a href="http://www.unrealsoftware.de/profile.php?userid=19233">Moj Stari USGN profil</a>
@@ -87,7 +121,7 @@ Prvi susret sa programiranjem mi je i bio preko Inspect Elementa uz igranje sa K
               </div>
               <div class="col-md-4">
                 <div class="right-image">
-                  <img src="assets/images/kuckanje.gif" alt="Kuckanje" />
+                  <img src="assets/images/kuckanje.gif" alt="Kuckanje" loading="lazy" />
 				</div>
               </div>
               
@@ -97,7 +131,7 @@ Prvi susret sa programiranjem mi je i bio preko Inspect Elementa uz igranje sa K
             <div class="row">           
               <div class="col-md-4">
                 <div class="left-image">
-                  <img src="assets/images/prevod.jpg" alt="BGA prevod" />
+                  <img src="assets/images/prevod.jpg" alt="BGA prevod" loading="lazy" />
                 </div>
               </div>
               
@@ -118,8 +152,8 @@ Prvi susret sa programiranjem mi je i bio preko Inspect Elementa uz igranje sa K
               <div class="col-md-8">
                 <div class="left-text">
                   <h4>Kasniji Projekti</h4>
-                  <p>Tokom studija pokušavam napraviti nešto svoje. Nakon položenih ispita Programiranje 1,2 i napravljene prve zmijice i potapanje brodića u <font color="yellow"><b>JAVI</b></font> počinjem sam učiti Android Studio i Kotlin gde zajedno sa finim šveđaninom pravim prvu andoid igru <a href="https://play.google.com/store/apps/details?id=com.latahunden.toarms&hl=en">To Arms!!!</a>. Nakon toga sam prešao na multiplayer community. </p>
-                  <p>2018. nastaje moj najveći projekat. Testira primenu rada u <font color="yellow"><b>JavaScript</b></font>, rad sa bazama, rad sa zajednicom od preko 200 aktivnih igrača, kao i primenu znanja o <font color="yellow"><b>Cloud-u</b></font> i mrežnim podacima. <b>HaxBo</b> je usavršena modifikacija stare popularne igre <a href="https://haxball.com">Haxball</a> koja joj dodaje gomilu novih komandi i interakcija.</p>
+                  <p>Tokom studija pokušavam napraviti nešto svoje. Nakon položenih ispita Programiranje 1,2 i napravljene prve zmijice i potapanje brodića u <span class="highlight-yellow">JAVI</span> počinjem sam učiti Android Studio i Kotlin gde zajedno sa finim švećaninom pravim prvu andoid igru <a href="https://play.google.com/store/apps/details?id=com.latahunden.toarms&hl=en">To Arms!!!</a>. Nakon toga sam prešao na multiplayer community. </p>
+                  <p>2018. nastaje moj najveći projekat. Testira primenu rada u <span class="highlight-yellow">JavaScript</span>, rad sa bazama, rad sa zajednicom od preko 200 aktivnih igrača, kao i primenu znanja o <span class="highlight-yellow">Cloud-u</span> i mrežnim podacima. <b>HaxBo</b> je usavršena modifikacija stare popularne igre <a href="https://haxball.com">Haxball</a> koja joj dodaje gomilu novih komandi i interakcija.</p>
                   <div class="white-button">
                     <a href="https://discord.gg/sC8CQWY">HaxBo Discord Server</a>
                   </div>
@@ -127,7 +161,7 @@ Prvi susret sa programiranjem mi je i bio preko Inspect Elementa uz igranje sa K
               </div>
               <div class="col-md-4">
                 <div class="right-image">
-                  <img src="assets/images/haxbo.png" alt="HaxBo" />
+                  <img src="assets/images/haxbo.png" alt="HaxBo" loading="lazy" />
 				</div>
               </div>             
             </div>
@@ -144,7 +178,7 @@ Prvi susret sa programiranjem mi je i bio preko Inspect Elementa uz igranje sa K
             <span>Ukratko.</span>
           </div>
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 col-sm-12">
               <div class="service-item">
                 <i class="fa fa-list-ol"></i>
                 <h4>Programski Jezici</h4>
@@ -152,21 +186,21 @@ Prvi susret sa programiranjem mi je i bio preko Inspect Elementa uz igranje sa K
 				<p>Uz reference: Powershell, Node, SQL</p>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 col-sm-12">
               <div class="service-item">
                 <i class="fa fa-check-square-o"></i>
                 <h4>Iskustvo</h4>
                 <p>Višegodišnje iskustvo u saradnji sa drugim programerima kao i solo programiranju, 6 meseci rada kao tehnička podrška i 2 godine rada kao nastavnik matematike</p>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 col-sm-12">
               <div class="service-item">
                 <i class="fa fa-user"></i>
                 <h4>Osobine</h4>
                 <p>Timski igrač, entuzijastičan, voljan da nauči novo, komunikativan, samostalan.</p>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 col-sm-12">
               <div class="service-item">
                 <i class="fa fa-thumbs-o-up"></i>
                 <h4>Poslovni Status</h4>
@@ -194,13 +228,12 @@ Prvi susret sa programiranjem mi je i bio preko Inspect Elementa uz igranje sa K
                 <label><input type="radio" data-type="prevod" name="isotope-filter" />
                   <span>Prevođenje</span></label>
                 <label><input type="radio" data-type="haxbo" name="isotope-filter" />
-                  <span>HaxBo</span></label
-                >
+                  <span>HaxBo</span></label>
               </form>
               <div class="isotope-box">
                 <div class="isotope-item" data-type="prevod">
                   <figure class="snip1321">
-                    <img src="assets/images/prevod1.jpg" alt="spire 1" />
+                    <img src="assets/images/prevod1.jpg" alt="spire 1" loading="lazy" />
                     <figcaption>
                       <a href="assets/images/prevod1.jpg"
                         data-lightbox="image-1"
@@ -213,7 +246,7 @@ Prvi susret sa programiranjem mi je i bio preko Inspect Elementa uz igranje sa K
 
                 <div class="isotope-item" data-type="prevod">
                   <figure class="snip1321">
-                    <img src="assets/images/prevod2.jpg" alt="spire 2" />
+                    <img src="assets/images/prevod2.jpg" alt="spire 2" loading="lazy" />
                     <figcaption>
                       <a href="assets/images/prevod2.jpg"
                         data-lightbox="image-1"
@@ -226,7 +259,7 @@ Prvi susret sa programiranjem mi je i bio preko Inspect Elementa uz igranje sa K
 				
 				<div class="isotope-item" data-type="programiranje">
                   <figure class="snip1321">
-                    <img src="assets/images/cs2d_grudvanje.jpg" alt="grudvanje" />
+                    <img src="assets/images/cs2d_grudvanje.jpg" alt="grudvanje" loading="lazy" />
                     <figcaption>
                       <a href="assets/images/cs2d_grudvanje.jpg"
                         data-lightbox="image-1"
@@ -239,11 +272,11 @@ Prvi susret sa programiranjem mi je i bio preko Inspect Elementa uz igranje sa K
 
 				<div class="isotope-item" data-type="programiranje">
                   <figure class="snip1321">
-                    <img src="assets/images/lavirint.jpg" alt="lavirint" />
+                    <img src="assets/images/lavirint.jpg" alt="lavirint" loading="lazy" />
                     <figcaption>
                       <a href="assets/images/lavirint.jpg"
                         data-lightbox="image-1"
-                        data-title="Projekat pravljen koristeći Godot engine."><i class="fa fa-search"></i></a>
+                        data-title="Projekat pravljen korišteći Godot engine."><i class="fa fa-search"></i></a>
                       <h4>Maze generator</h4>
                       <span>Generisanje NxN lavirinta i testiranje A* pathfinding algoritma.</span>
                     </figcaption>
@@ -252,7 +285,7 @@ Prvi susret sa programiranjem mi je i bio preko Inspect Elementa uz igranje sa K
 				
                 <div class="isotope-item" data-type="prevod">
                   <figure class="snip1321">
-                    <img src="assets/images/prevod4.jpg" alt="Dice Forge" />
+                    <img src="assets/images/prevod4.jpg" alt="Dice Forge" loading="lazy" />
                     <figcaption>
                       <a href="assets/images/prevod4.jpg"
                         data-lightbox="image-1"
@@ -265,7 +298,7 @@ Prvi susret sa programiranjem mi je i bio preko Inspect Elementa uz igranje sa K
 				
 				<div class="isotope-item" data-type="haxbo">
                   <figure class="snip1321">
-                    <img src="assets/images/hax_ss.jpg" alt="hax screenshot" />
+                    <img src="assets/images/hax_ss.jpg" alt="hax screenshot" loading="lazy" />
                     <figcaption>
                       <a href="assets/images/hax_ss.jpg"
                         data-lightbox="image-1"
@@ -278,7 +311,7 @@ Prvi susret sa programiranjem mi je i bio preko Inspect Elementa uz igranje sa K
 				
 				<div class="isotope-item" data-type="haxbo">
                   <figure class="snip1321">
-                    <img src="assets/images/hax_bot.jpg" alt="hax bot" />
+                    <img src="assets/images/hax_bot.jpg" alt="hax bot" loading="lazy" />
                     <figcaption>
                       <a href="assets/images/hax_bot.jpg"
                         data-lightbox="image-1"
@@ -291,7 +324,7 @@ Prvi susret sa programiranjem mi je i bio preko Inspect Elementa uz igranje sa K
 				
 				<div class="isotope-item" data-type="haxbo">
                   <figure class="snip1321">
-                    <img src="assets/images/hax_bot1.jpg" alt="hax bot komande" />
+                    <img src="assets/images/hax_bot1.jpg" alt="hax bot komande" loading="lazy" />
                     <figcaption>
                       <a href="assets/images/hax_bot1.jpg"
                         data-lightbox="image-1"
@@ -304,7 +337,7 @@ Prvi susret sa programiranjem mi je i bio preko Inspect Elementa uz igranje sa K
 
                 <div class="isotope-item" data-type="haxbo">
                   <figure class="snip1321">
-                    <img src="assets/images/hax_baza.jpg" alt="hax baza" />
+                    <img src="assets/images/hax_baza.jpg" alt="hax baza" loading="lazy" />
                     <figcaption>
                       <a href="assets/images/hax_baza.jpg"
                         data-lightbox="image-1"
@@ -317,7 +350,7 @@ Prvi susret sa programiranjem mi je i bio preko Inspect Elementa uz igranje sa K
 
                 <div class="isotope-item" data-type="prevod">
                   <figure class="snip1321">
-                    <img src="assets/images/prevod3.jpg" alt="Dice Forge" />
+                    <img src="assets/images/prevod3.jpg" alt="Dice Forge" loading="lazy" />
                     <figcaption>
                       <a href="assets/images/prevod3.jpg" 
                       data-lightbox="image-1" data-title="Korišćenje RegEx za olakšavanje posla, kopirajući od kolega iz Hrvatske">
@@ -389,6 +422,27 @@ Prvi susret sa programiranjem mi je i bio preko Inspect Elementa uz igranje sa K
 
       $(window).scroll(function() {
         checkSection();
+      });
+
+      // Lazy loading implementation
+      document.addEventListener("DOMContentLoaded", function() {
+        var lazyImages = [].slice.call(document.querySelectorAll("img[loading='lazy']"));
+
+        if ("IntersectionObserver" in window) {
+          let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
+              if (entry.isIntersecting) {
+                let lazyImage = entry.target;
+                lazyImage.classList.add("loaded");
+                lazyImageObserver.unobserve(lazyImage);
+              }
+            });
+          });
+
+          lazyImages.forEach(function(lazyImage) {
+            lazyImageObserver.observe(lazyImage);
+          });
+        }
       });
     </script>
   </body>
