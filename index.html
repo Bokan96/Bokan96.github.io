@@ -283,7 +283,11 @@
       }
       
       /* Make sure no backgrounds are blocking canvas */
-/* Subtle vignette effect */
+      #page-wraper > * {
+        background: transparent;
+      }
+      
+      /* Subtle vignette effect */
       #page-wraper::before {
         content: '';
         position: fixed;
@@ -601,7 +605,7 @@
       }
       
       .skill-category li:before {
-        content: "▹ ";
+        content: "â–¹ ";
         color: #4CC;
         font-weight: bold;
       }
@@ -1007,13 +1011,7 @@
         }
       }
       
-#page-wraper {
-        position: relative;
-        z-index: 100 !important;
-      }
-      
-      /* Make sure no backgrounds are blocking canvas */
-</style>
+    </style>
   </head>
 
   <body>
@@ -1025,7 +1023,7 @@
         <div class="progress-container">
           <div class="progress-bar"></div>
         </div>
-        <div class="loading-text" data-en="Loading Experience..." data-sr="Učitavanje iskustva...">Loading Experience...</div>
+        <div class="loading-text" data-en="Loading Experience..." data-sr="UÄitavanje iskustva...">Loading Experience...</div>
       </div>
     </div>
 
@@ -1049,15 +1047,15 @@
               <button id="lang-en" class="active" title="English">
                 <img src="assets/images/united-kingdom.png" alt="English" />
               </button>
-              <button id="lang-sr" title="Српски">
-                <img src="assets/images/serbia.png" alt="Српски" />
+              <button id="lang-sr" title="Ð¡Ñ€Ð¿ÑÐºÐ¸">
+                <img src="assets/images/serbia.png" alt="Ð¡Ñ€Ð¿ÑÐºÐ¸" />
               </button>
             </div>
             
             <nav class="main-nav" role="navigation">
               <ul class="main-menu">
                 <li><a href="#section1" data-en="About" data-sr="O meni">About</a></li>
-                <li><a href="#section2" data-en="Skills" data-sr="Veštine">Skills</a></li>
+                <li><a href="#section2" data-en="Skills" data-sr="VeÅ¡tine">Skills</a></li>
                 <li><a href="#section3" data-en="Projects" data-sr="Projekti">Projects</a></li>
                 <li><a href="#section4" data-en="Showcase" data-sr="Galerija">Showcase</a></li>
               </ul>
@@ -1090,7 +1088,7 @@
         <div class="hero-banner">
           <div class="hero-content">
             <h1>Bojan Božović</h1>
-            <div class="tagline" data-en="Crafting engaging player experiences | Multiple Top 10 Grossing mobile titles" data-sr="Stvaram angažujuća iskustva za igrače | Više Top 10 mobilnih igara po zaradi">Crafting engaging player experiences | Multiple Top 10 Grossing mobile titles</div>
+            <div class="tagline" data-en="Crafting engaging player experiences | Multiple Top 10 Grossing mobile titles" data-sr="Stvaram angaÅ¾ujuÄ‡a iskustva za igraÄe | ViÅ¡e Top 10 mobilnih igara po zaradi">Crafting engaging player experiences | Multiple Top 10 Grossing mobile titles</div>
           </div>
         </div>
         
@@ -1104,13 +1102,14 @@
             <div class="row">
               <div class="col-md-8">
                 <div class="left-text">
-                  <p>Hey! I'm a game developer currently leading a team at <strong>Replai</strong>, where we build top-10 grossing mobile games. I've been making games since I was 14, starting with mods for CS2D, and I'm still just as excited about it today.</p>
+                  <p>Hello! My name is <strong>Bojan Božović</strong>, and I'm a software developer with a passion for game design and mathematical problem-solving.</p>
+                  
+                  <p>I live to learn and to improve myself—always embracing difficult challenges rather than comfortably coasting through the familiar. This philosophy has driven nearly a decade of diverse technological exploration across multiple domains.</p>
+                  
+                  <p>My professional journey spans <strong>web, desktop, and mobile application development</strong>, complemented by expertise in <strong>game development, video editing, and backend systems</strong>. I've been fortunate to work across varied sectors including <strong>gaming, advertising, healthcare technology, and data analytics</strong>—where precision and reliability are paramount.</p>
+                  
+                  <p>This cross-disciplinary experience enables me to bring a well-rounded skill set and unique perspective to every project, transforming challenges into opportunities for innovation.</p>
 
-                  <p>I have a <strong>Master's in Electrical and Computer Engineering</strong> from the University of Belgrade, and also studied mathematics there. During school, I was lucky enough to win the <strong>Vukovac Award</strong> and place in <strong>regional math competitions</strong>. I also spent time tutoring math and doing translation work for BoardGameArena—basically anything that let me stay close to games!</p>
-
-                  <p>What really drives me is figuring out what makes games <em>actually fun</em>. I love diving into player data and metrics, but at the end of the day, it's about creating something people enjoy. When I was 20, I built a multiplayer football game that grew to 100+ active players with a real economy—that's when I realized this is what I want to do.</p>
-
-                  <p>Right now, I'm looking for my next challenge. I want to work on more complex projects with a talented team where we can push boundaries and create games that people genuinely love.</p>
 
                   <div class="white-button">
                     <a href="https://github.com/bokan96" target="_blank" data-en="View GitHub" data-sr="Pogledaj GitHub">View GitHub</a>
@@ -1133,8 +1132,8 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="right-text">
-                  <h4 data-en="Where It All Started" data-sr="Gde je sve počelo">Where It All Started</h4>
-                  <p>At 14, I started creating mods and maps for CS2D using Lua scripting. My work gained traction quickly—with creations reaching <strong>over 1,000 downloads</strong> and being hosted on dozens of servers. I became an <strong>official USGN modder and mapper</strong>, which taught me the fundamentals of game logic, player engagement, and community building.</p>
+                  <h4 data-en="Where It All Started" data-sr="Gde je sve poÄelo">Where It All Started</h4>
+                  <p>At 14, I started creating mods and maps for CS2D using Lua scripting. My work gained traction quicklyâ€”with creations reaching <strong>over 1,000 downloads</strong> and being hosted on dozens of servers. I became an <strong>official USGN modder and mapper</strong>, which taught me the fundamentals of game logic, player engagement, and community building.</p>
                   <p>This early experience shaped how I think about games today. I learned that great gameplay comes from iteration, listening to players, and understanding what keeps them coming back.</p>
                 </div>
               </div>
@@ -1146,7 +1145,7 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="right-text">
-                  <h4 data-en="Beyond Digital: Board Game Design" data-sr="Van digitalnog: Dizajn društvenih igara">Beyond Digital: Board Game Design</h4>
+                  <h4 data-en="Beyond Digital: Board Game Design" data-sr="Van digitalnog: Dizajn druÅ¡tvenih igara">Beyond Digital: Board Game Design</h4>
                   <p>I've designed and crafted <strong>2 original board games</strong>, later creating digital versions for Android. This cross-medium approach strengthened my understanding of core mechanics and iterative design. Working without the crutch of digital effects forced me to focus on what truly makes a game fun at its core.</p>
                   <p>I also contributed as a <strong>translator for BoardGameArena</strong>, translating 2 games and most of the website UI. I even created a script that automatically adapted Serbian translations to Croatian, which impressed the staff and doubled our language coverage overnight.</p          <!-- HaxBo Project Highlight -->
           <div class="left-image-post">
@@ -1159,14 +1158,14 @@
               
               <div class="col-md-8">
                 <div class="right-text">
-                  <h4 data-en="HaxBo: Mathematical Systems Design" data-sr="HaxBo: Dizajn matematičkih sistema">HaxBo: Mathematical Systems Design</h4>
-                  <p><span data-en="In 2018, I created my largest personal project:" data-sr="2018. godine, stvorio sam svoj najveći lični projekat:">In 2018, I created my largest personal project:</span> <strong>HaxBo</strong><span data-en=", an enhanced modification of the popular game Haxball. This project showcases my ability to combine programming, mathematics, and game design." data-sr=", poboljšana modifikacija popularne igre Haxball. Ovaj projekat prikazuje moju sposobnost da kombinujem programiranje, matematiku i dizajn igara.">, an enhanced modification of the popular game Haxball. This project showcases my ability to combine programming, mathematics, and game design.</span></p>
+                  <h4 data-en="HaxBo: Mathematical Systems Design" data-sr="HaxBo: Dizajn matematiÄkih sistema">HaxBo: Mathematical Systems Design</h4>
+                  <p><span data-en="In 2018, I created my largest personal project:" data-sr="2018. godine, stvorio sam svoj najveÄ‡i liÄni projekat:">In 2018, I created my largest personal project:</span> <strong>HaxBo</strong><span data-en=", an enhanced modification of the popular game Haxball. This project showcases my ability to combine programming, mathematics, and game design." data-sr=", poboljÅ¡ana modifikacija popularne igre Haxball. Ovaj projekat prikazuje moju sposobnost da kombinujem programiranje, matematiku i dizajn igara.">, an enhanced modification of the popular game Haxball. This project showcases my ability to combine programming, mathematics, and game design.</span></p>
                   
                   <div class="achievement">
-                    <strong data-en="Key Achievement:" data-sr="Ključno dostignuće:">Key Achievement:</strong> <span data-en="Designed and implemented an in-game gambling system using mathematical probability models, providing entertainment while maintaining fair odds and economic balance." data-sr="Dizajnirao sam i implementirao kockarski sistem u igri koristeći matematičke modele verovatnoće, pružajući zabavu dok održavam fer kvote i ekonomsku ravnotežu.">Designed and implemented an in-game gambling system using mathematical probability models, providing entertainment while maintaining fair odds and economic balance.</span>
+                    <strong data-en="Key Achievement:" data-sr="KljuÄno dostignuÄ‡e:">Key Achievement:</strong> <span data-en="Designed and implemented an in-game gambling system using mathematical probability models, providing entertainment while maintaining fair odds and economic balance." data-sr="Dizajnirao sam i implementirao kockarski sistem u igri koristeÄ‡i matematiÄke modele verovatnoÄ‡e, pruÅ¾ajuÄ‡i zabavu dok odrÅ¾avam fer kvote i ekonomsku ravnoteÅ¾u.">Designed and implemented an in-game gambling system using mathematical probability models, providing entertainment while maintaining fair odds and economic balance.</span>
                   </div>
 
-                  <p><span data-en="The project demonstrates proficiency in" data-sr="Projekat pokazuje veštinu u">The project demonstrates proficiency in</span> <span class="highlight" data-en="JavaScript" data-sr="JavaScript-u">JavaScript</span><span data-en=", database management, cloud services, and community management (200+ active players). Over 5,400 lines of code managing game rules, player statistics, inventory systems, and real-time interactions." data-sr=", upravljanju bazama podataka, cloud servisima i upravljanju zajednicom (200+ aktivnih igrača). Preko 5,400 linija koda koje upravljaju pravilima igre, statistikama igrača, sistemima inventara i interakcijama u realnom vremenu.">, database management, cloud services, and community management (200+ active players). Over 5,400 lines of code managing game rules, player statistics, inventory systems, and real-time interactions.</span></p>
+                  <p><span data-en="The project demonstrates proficiency in" data-sr="Projekat pokazuje veÅ¡tinu u">The project demonstrates proficiency in</span> <span class="highlight" data-en="JavaScript" data-sr="JavaScript-u">JavaScript</span><span data-en=", database management, cloud services, and community management (200+ active players). Over 5,400 lines of code managing game rules, player statistics, inventory systems, and real-time interactions." data-sr=", upravljanju bazama podataka, cloud servisima i upravljanju zajednicom (200+ aktivnih igraÄa). Preko 5,400 linija koda koje upravljaju pravilima igre, statistikama igraÄa, sistemima inventara i interakcijama u realnom vremenu.">, database management, cloud services, and community management (200+ active players). Over 5,400 lines of code managing game rules, player statistics, inventory systems, and real-time interactions.</span></p>
 
                   <div class="white-button">
                     <a href="https://discord.gg/sC8CQWY" target="_blank">HaxBo Discord</a>
@@ -1182,9 +1181,9 @@
       <section class="section my-services" data-section="section2">
         <div class="container">
           <div class="section-heading">
-            <h2 data-en="Skills & Expertise" data-sr="Veštine i stručnost">Skills & Expertise</h2>
+            <h2 data-en="Skills & Expertise" data-sr="VeÅ¡tine i struÄnost">Skills & Expertise</h2>
             <div class="line-dec"></div>
-            <span data-en="Technical skills, design expertise, and professional experience." data-sr="Tehničke veštine, dizajnerska stručnost i profesionalno iskustvo.">Technical skills, design expertise, and professional experience.</span>
+            <span data-en="Technical skills, design expertise, and professional experience." data-sr="TehniÄke veÅ¡tine, dizajnerska struÄnost i profesionalno iskustvo.">Technical skills, design expertise, and professional experience.</span>
           </div>
 
           <div class="skills-grid">
@@ -1194,7 +1193,7 @@
                 <li data-en="Systems Design" data-sr="Dizajn sistema">Systems Design</li>
                 <li data-en="Progression Design" data-sr="Dizajn progresije">Progression Design</li>
                 <li data-en="Monetization Strategy" data-sr="Strategija monetizacije">Monetization Strategy</li>
-                <li data-en="Player Engagement" data-sr="Angažovanje igrača">Player Engagement</li>
+                <li data-en="Player Engagement" data-sr="AngaÅ¾ovanje igraÄa">Player Engagement</li>
                 <li data-en="Game Economy" data-sr="Ekonomija igre">Game Economy</li>
                 <li data-en="Live Ops" data-sr="Live operacije">Live Ops</li>
               </ul>
@@ -1213,11 +1212,11 @@
             </div>
 
             <div class="skill-category">
-              <h5><i class="fa fa-lightbulb-o"></i> <span data-en="Specialized Skills" data-sr="Specijalizovane veštine">Specialized Skills</span></h5>
+              <h5><i class="fa fa-lightbulb-o"></i> <span data-en="Specialized Skills" data-sr="Specijalizovane veÅ¡tine">Specialized Skills</span></h5>
               <ul>
                 <li data-en="WebGL Development" data-sr="WebGL razvoj">WebGL Development</li>
                 <li data-en="Android Development" data-sr="Android razvoj">Android Development</li>
-                <li data-en="Mathematical Modeling" data-sr="Matematičko modelovanje">Mathematical Modeling</li>
+                <li data-en="Mathematical Modeling" data-sr="MatematiÄko modelovanje">Mathematical Modeling</li>
                 <li data-en="Data Analysis" data-sr="Analiza podataka">Data Analysis</li>
                 <li data-en="Localization" data-sr="Lokalizacija">Localization</li>
                 <li data-en="A/B Testing" data-sr="A/B testiranje">A/B Testing</li>
@@ -1227,8 +1226,8 @@
             <div class="skill-category">
               <h5><i class="fa fa-users"></i> <span data-en="Leadership" data-sr="Liderstvo">Leadership</span></h5>
               <ul>
-                <li data-en="Team Lead Experience" data-sr="Iskustvo vođe tima">Team Lead Experience</li>
-                <li data-en="Cross-functional Collaboration" data-sr="Međufunkcionalna saradnja">Cross-functional Collaboration</li>
+                <li data-en="Team Lead Experience" data-sr="Iskustvo voÄ‘e tima">Team Lead Experience</li>
+                <li data-en="Cross-functional Collaboration" data-sr="MeÄ‘ufunkcionalna saradnja">Cross-functional Collaboration</li>
                 <li>Agile/Scrum</li>
                 <li data-en="Mentoring" data-sr="Mentorstvo">Mentoring</li>
                 <li data-en="Project Management" data-sr="Upravljanje projektima">Project Management</li>
@@ -1241,11 +1240,11 @@
             <div class="col-md-6">
               <div class="service-item">
                 <i class="fa fa-users"></i>
-                <h4 data-en="Leadership & Management" data-sr="Liderstvo i menadžment">Leadership & Management</h4>
+                <h4 data-en="Leadership & Management" data-sr="Liderstvo i menadÅ¾ment">Leadership & Management</h4>
                 <ul style="padding-left: 20px; list-style-type: disc;">
-                  <li><strong data-en="Team Lead at Replai (2 years)" data-sr="Vođa tima u Replai-u (2 godine)">Team Lead at Replai (2 years)</strong> - <span data-en="Grew Unity team from 3 to 15 developers, managing daily operations and Git workflows" data-sr="Povećao Unity tim sa 3 na 15 programera, upravljajući dnevnim operacijama i Git tokovima rada">Grew Unity team from 3 to 15 developers, managing daily operations and Git workflows</span></li>
-                  <li><strong data-en="Creative Producer" data-sr="Kreativni producent">Creative Producer</strong> - <span data-en="Started in video production, identified automation opportunities that launched the Unity division" data-sr="Počeo u video produkciji, identifikovao prilike za automatizaciju koje su pokrenule Unity odelenje">Started in video production, identified automation opportunities that launched the Unity division</span></li>
-                  <li><strong data-en="Cross-functional Communication" data-sr="Međufunkcionalna komunikacija">Cross-functional Communication</strong> - <span data-en="Daily calls with developers and designers, sprint planning and board game celebration nights" data-sr="Dnevni pozivi sa programerima i dizajnerima, planiranje sprintova i noći proslava društvenim igrama">Daily calls with developers and designers, sprint planning and board game celebration nights</span></li>
+                  <li><strong data-en="Team Lead at Replai (2 years)" data-sr="VoÄ‘a tima u Replai-u (2 godine)">Team Lead at Replai (2 years)</strong> - <span data-en="Grew Unity team from 3 to 15 developers, managing daily operations and Git workflows" data-sr="PoveÄ‡ao Unity tim sa 3 na 15 programera, upravljajuÄ‡i dnevnim operacijama i Git tokovima rada">Grew Unity team from 3 to 15 developers, managing daily operations and Git workflows</span></li>
+                  <li><strong data-en="Creative Producer" data-sr="Kreativni producent">Creative Producer</strong> - <span data-en="Started in video production, identified automation opportunities that launched the Unity division" data-sr="PoÄeo u video produkciji, identifikovao prilike za automatizaciju koje su pokrenule Unity odelenje">Started in video production, identified automation opportunities that launched the Unity division</span></li>
+                  <li><strong data-en="Cross-functional Communication" data-sr="MeÄ‘ufunkcionalna komunikacija">Cross-functional Communication</strong> - <span data-en="Daily calls with developers and designers, sprint planning and board game celebration nights" data-sr="Dnevni pozivi sa programerima i dizajnerima, planiranje sprintova i noÄ‡i proslava druÅ¡tvenim igrama">Daily calls with developers and designers, sprint planning and board game celebration nights</span></li>
                 </ul>
               </div>
             </div>
@@ -1253,13 +1252,13 @@
             <div class="col-md-6">
               <div class="service-item">
                 <i class="fa fa-trophy"></i>
-                <h4 data-en="Notable Achievements" data-sr="Značajna dostignuća">Notable Achievements</h4>
+                <h4 data-en="Notable Achievements" data-sr="ZnaÄajna dostignuÄ‡a">Notable Achievements</h4>
                 <ul style="padding-left: 20px; list-style-type: disc;">
                   <li data-en="Built and scaled Unity team from 3 to 15 people in under a year" data-sr="Izgradio i skalirao Unity tim sa 3 na 15 ljudi za manje od godinu dana">Built and scaled Unity team from 3 to 15 people in under a year</li>
-                  <li data-en="Multiple games reached Top 10 Grossing on Android platforms" data-sr="Više igara dostiglo Top 10 po zaradi na Android platformama">Multiple games reached Top 10 Grossing on Android platforms</li>
-                  <li data-en="Vukovac Award recipient & Regional math competition placements" data-sr="Dobitnik Vukovce nagrade i plasmani na regionalnim matematičkim takmičenjima">Vukovac Award recipient & Regional math competition placements</li>
-                  <li data-en="Created HaxBo with 100+ active players and real-money economy" data-sr="Kreirao HaxBo sa 100+ aktivnih igrača i ekonomijom sa pravim novcem">Created HaxBo with 100+ active players and real-money economy</li>
-                  <li data-en="Official USGN modder with 1,000+ downloads across community servers" data-sr="Zvanični USGN moder sa 1,000+ preuzimanja širom servera zajednice">Official USGN modder with 1,000+ downloads across community servers</li>
+                  <li data-en="Multiple games reached Top 10 Grossing on Android platforms" data-sr="ViÅ¡e igara dostiglo Top 10 po zaradi na Android platformama">Multiple games reached Top 10 Grossing on Android platforms</li>
+                  <li data-en="Vukovac Award recipient & Regional math competition placements" data-sr="Dobitnik Vukovce nagrade i plasmani na regionalnim matematiÄkim takmiÄenjima">Vukovac Award recipient & Regional math competition placements</li>
+                  <li data-en="Created HaxBo with 100+ active players and real-money economy" data-sr="Kreirao HaxBo sa 100+ aktivnih igraÄa i ekonomijom sa pravim novcem">Created HaxBo with 100+ active players and real-money economy</li>
+                  <li data-en="Official USGN modder with 1,000+ downloads across community servers" data-sr="ZvaniÄni USGN moder sa 1,000+ preuzimanja Å¡irom servera zajednice">Official USGN modder with 1,000+ downloads across community servers</li>
                 </ul>
               </div>
             </div>
@@ -1273,13 +1272,13 @@
           <div class="section-heading">
             <h2 data-en="Featured Projects" data-sr="Istaknuti projekti">Featured Projects</h2>
             <div class="line-dec"></div>
-            <span data-en="Professional work and personal projects showcasing game development skills" data-sr="Profesionalni rad i lični projekti koji prikazuju veštine razvoja igara">Professional work and personal projects showcasing game development skills</span>
+            <span data-en="Professional work and personal projects showcasing game development skills" data-sr="Profesionalni rad i liÄni projekti koji prikazuju veÅ¡tine razvoja igara">Professional work and personal projects showcasing game development skills</span>
           </div>
 
           <!-- Current Project -->
           <div class="project-card">
             <h4><i class="fa fa-star"></i> Village Pillage (WebGL) - <span data-en="In Development" data-sr="U razvoju">In Development</span></h4>
-            <p data-en="Currently building a WebGL version of the strategic board game Village Pillage. Features complex turn-based mechanics, resource management, and player vs player strategy. This project showcases modern web game development and state management." data-sr="Trenutno gradim WebGL verziju strateške društvene igre Village Pillage. Sadrži složene mehanike poteza, upravljanje resursima i strategiju igrač protiv igrača. Ovaj projekat prikazuje savremeni razvoj web igara i upravljanje stanjem.">Currently building a WebGL version of the strategic board game Village Pillage. Features complex turn-based mechanics, resource management, and player vs player strategy. This project showcases modern web game development and state management.</p>
+            <p data-en="Currently building a WebGL version of the strategic board game Village Pillage. Features complex turn-based mechanics, resource management, and player vs player strategy. This project showcases modern web game development and state management." data-sr="Trenutno gradim WebGL verziju strateÅ¡ke druÅ¡tvene igre Village Pillage. SadrÅ¾i sloÅ¾ene mehanike poteza, upravljanje resursima i strategiju igraÄ protiv igraÄa. Ovaj projekat prikazuje savremeni razvoj web igara i upravljanje stanjem.">Currently building a WebGL version of the strategic board game Village Pillage. Features complex turn-based mechanics, resource management, and player vs player strategy. This project showcases modern web game development and state management.</p>
             <div class="tech-stack">
               <span class="tech-badge">WebGL</span>
               <span class="tech-badge">JavaScript</span>
@@ -1294,11 +1293,11 @@
           <!-- Trifacto -->
           <div class="project-card">
             <h4><i class="fa fa-mobile"></i> Trifacto (Android)</h4>
-            <p data-en="A fully-fledged Android board game showcasing original game mechanics and polished mobile gameplay. Available on GitHub, demonstrating end-to-end mobile game development from design to deployment." data-sr="Potpuno razvijena Android društvena igra koja prikazuje originalne mehanike igre i uglađen mobilni gameplay. Dostupna na GitHub-u, pokazuje kompletan razvoj mobilne igre od dizajna do implementacije.">A fully-fledged Android board game showcasing original game mechanics and polished mobile gameplay. Available on GitHub, demonstrating end-to-end mobile game development from design to deployment.</p>
+            <p data-en="A fully-fledged Android board game showcasing original game mechanics and polished mobile gameplay. Available on GitHub, demonstrating end-to-end mobile game development from design to deployment." data-sr="Potpuno razvijena Android druÅ¡tvena igra koja prikazuje originalne mehanike igre i uglaÄ‘en mobilni gameplay. Dostupna na GitHub-u, pokazuje kompletan razvoj mobilne igre od dizajna do implementacije.">A fully-fledged Android board game showcasing original game mechanics and polished mobile gameplay. Available on GitHub, demonstrating end-to-end mobile game development from design to deployment.</p>
             <div class="tech-stack">
               <span class="tech-badge">Android</span>
               <span class="tech-badge">Kotlin</span>
-              <span class="tech-badge" data-en="Board Game" data-sr="Društvena igra">Board Game</span>
+              <span class="tech-badge" data-en="Board Game" data-sr="DruÅ¡tvena igra">Board Game</span>
               <span class="tech-badge" data-en="Mobile" data-sr="Mobilno">Mobile</span>
             </div>
             <div class="white-button" style="margin-top: 15px;">
@@ -1309,7 +1308,7 @@
           <!-- Match-3 Games -->
           <div class="project-card">
             <h4><i class="fa fa-trophy"></i> <span data-en="Top 10 Match-3 Games" data-sr="Top 10 Match-3 igre">Top 10 Match-3 Games</span></h4>
-            <p data-en="Led development on multiple match-3 titles at Replai that reached Top 10 Grossing status. Focused on progression systems, daily engagement loops, and monetization balance. Worked with live ops data to continuously improve player retention and satisfaction." data-sr="Vodio razvoj više match-3 naslova u Replai-u koji su dostigli Top 10 status po zaradi. Fokusiran na sisteme progresije, dnevne loopove angažovanja i balans monetizacije. Radio sa podacima uživo za kontinuirano poboljšanje zadržavanja i zadovoljstva igrača.">Led development on multiple match-3 titles at Replai that reached Top 10 Grossing status. Focused on progression systems, daily engagement loops, and monetization balance. Worked with live ops data to continuously improve player retention and satisfaction.</p>
+            <p data-en="Led development on multiple match-3 titles at Replai that reached Top 10 Grossing status. Focused on progression systems, daily engagement loops, and monetization balance. Worked with live ops data to continuously improve player retention and satisfaction." data-sr="Vodio razvoj viÅ¡e match-3 naslova u Replai-u koji su dostigli Top 10 status po zaradi. Fokusiran na sisteme progresije, dnevne loopove angaÅ¾ovanja i balans monetizacije. Radio sa podacima uÅ¾ivo za kontinuirano poboljÅ¡anje zadrÅ¾avanja i zadovoljstva igraÄa.">Led development on multiple match-3 titles at Replai that reached Top 10 Grossing status. Focused on progression systems, daily engagement loops, and monetization balance. Worked with live ops data to continuously improve player retention and satisfaction.</p>
             <div class="tech-stack">
               <span class="tech-badge">Unity</span>
               <span class="tech-badge">C#</span>
@@ -1322,7 +1321,7 @@
           <!-- HaxBo -->
           <div class="project-card">
             <h4><i class="fa fa-database"></i> HaxBo - Multiplayer Football Game</h4>
-            <p data-en="Built a custom multiplayer 3v3/4v4 football game with 100+ active players and 24/7 server uptime. Designed and implemented an in-game economy with gambling mechanics, currency systems, and player statistics tracking. Successfully monetized through real-money transactions for in-game currency." data-sr="Izgradio prilagođenu multiplayer 3v3/4v4 fudbalsku igru sa 100+ aktivnih igrača i 24/7 radom servera. Dizajnirao i implementirao ekonomiju u igri sa mehanikama kockanja, sistemima valute i praćenjem statistika igrača. Uspešno monetizovano kroz transakcije pravim novcem za valutu u igri.">Built a custom multiplayer 3v3/4v4 football game with 100+ active players and 24/7 server uptime. Designed and implemented an in-game economy with gambling mechanics, currency systems, and player statistics tracking. Successfully monetized through real-money transactions for in-game currency.</p>
+            <p data-en="Built a custom multiplayer 3v3/4v4 football game with 100+ active players and 24/7 server uptime. Designed and implemented an in-game economy with gambling mechanics, currency systems, and player statistics tracking. Successfully monetized through real-money transactions for in-game currency." data-sr="Izgradio prilagoÄ‘enu multiplayer 3v3/4v4 fudbalsku igru sa 100+ aktivnih igraÄa i 24/7 radom servera. Dizajnirao i implementirao ekonomiju u igri sa mehanikama kockanja, sistemima valute i praÄ‡enjem statistika igraÄa. UspeÅ¡no monetizovano kroz transakcije pravim novcem za valutu u igri.">Built a custom multiplayer 3v3/4v4 football game with 100+ active players and 24/7 server uptime. Designed and implemented an in-game economy with gambling mechanics, currency systems, and player statistics tracking. Successfully monetized through real-money transactions for in-game currency.</p>
             <div class="tech-stack">
               <span class="tech-badge">JavaScript</span>
               <span class="tech-badge" data-en="Database" data-sr="Baza podataka">Database</span>
@@ -1338,7 +1337,7 @@
           <!-- CS2D Mods -->
           <div class="project-card">
             <h4><i class="fa fa-code"></i> <span data-en="CS2D Mods & Maps" data-sr="CS2D Modovi i mape">CS2D Mods & Maps</span></h4>
-            <p data-en="Created game modifications and custom maps using Lua scripting. Work reached 1,000+ downloads and was hosted on dozens of community servers. Became an official USGN modder, learning fundamentals of game logic, player engagement, and iterative design at age 14." data-sr="Kreirao modifikacije igara i prilagođene mape koristeći Lua skriptovanje. Rad dostigao 1,000+ preuzimanja i bio je hostovan na desetinama servera zajednice. Postao zvanični USGN moder, učeći osnove logike igara, angažovanja igrača i iterativnog dizajna sa 14 godina.">Created game modifications and custom maps using Lua scripting. Work reached 1,000+ downloads and was hosted on dozens of community servers. Became an official USGN modder, learning fundamentals of game logic, player engagement, and iterative design at age 14.</p>
+            <p data-en="Created game modifications and custom maps using Lua scripting. Work reached 1,000+ downloads and was hosted on dozens of community servers. Became an official USGN modder, learning fundamentals of game logic, player engagement, and iterative design at age 14." data-sr="Kreirao modifikacije igara i prilagoÄ‘ene mape koristeÄ‡i Lua skriptovanje. Rad dostigao 1,000+ preuzimanja i bio je hostovan na desetinama servera zajednice. Postao zvaniÄni USGN moder, uÄeÄ‡i osnove logike igara, angaÅ¾ovanja igraÄa i iterativnog dizajna sa 14 godina.">Created game modifications and custom maps using Lua scripting. Work reached 1,000+ downloads and was hosted on dozens of community servers. Became an official USGN modder, learning fundamentals of game logic, player engagement, and iterative design at age 14.</p>
             <div class="tech-stack">
               <span class="tech-badge">Lua</span>
               <span class="tech-badge" data-en="Modding" data-sr="Modovanje">Modding</span>
@@ -1350,7 +1349,7 @@
           <!-- Automation Tools -->
           <div class="project-card">
             <h4><i class="fa fa-cogs"></i> <span data-en="Unity Automation Toolkit" data-sr="Unity Automation alati">Unity Automation Toolkit</span></h4>
-            <p data-en="Developed internal Unity tools at Replai to automate video production and asset processing workflows. The weekend prototype impressed leadership and led to the creation of a dedicated Unity team. Tools process client assets (images, sounds, videos) and generate game-ready content automatically." data-sr="Razvio interne Unity alate u Replai-u za automatizaciju video produkcije i obrade sredstava. Vikend prototip impresionirao je rukovodstvo i doveo do stvaranja posvećenog Unity tima. Alati obrađuju klijentska sredstva (slike, zvukove, video zapise) i automatski generišu sadržaj spreman za igru.">Developed internal Unity tools at Replai to automate video production and asset processing workflows. The weekend prototype impressed leadership and led to the creation of a dedicated Unity team. Tools process client assets (images, sounds, videos) and generate game-ready content automatically.</p>
+            <p data-en="Developed internal Unity tools at Replai to automate video production and asset processing workflows. The weekend prototype impressed leadership and led to the creation of a dedicated Unity team. Tools process client assets (images, sounds, videos) and generate game-ready content automatically." data-sr="Razvio interne Unity alate u Replai-u za automatizaciju video produkcije i obrade sredstava. Vikend prototip impresionirao je rukovodstvo i doveo do stvaranja posveÄ‡enog Unity tima. Alati obraÄ‘uju klijentska sredstva (slike, zvukove, video zapise) i automatski generiÅ¡u sadrÅ¾aj spreman za igru.">Developed internal Unity tools at Replai to automate video production and asset processing workflows. The weekend prototype impressed leadership and led to the creation of a dedicated Unity team. Tools process client assets (images, sounds, videos) and generate game-ready content automatically.</p>
             <div class="tech-stack">
               <span class="tech-badge">Unity</span>
               <span class="tech-badge">C#</span>
@@ -1362,10 +1361,10 @@
           <!-- Translation & Localization -->
           <div class="project-card">
             <h4><i class="fa fa-language"></i> <span data-en="Game Localization" data-sr="Lokalizacija igara">Game Localization</span></h4>
-            <p data-en="Translated ~20% of BoardGameArena.com to Serbian, including full adaptation of Dice Forge game code and interface. Created Serbian translations for indie games including Slay the Spire, The Curious Expedition, and FTL: Faster Than Light." data-sr="Preveo ~20% BoardGameArena.com na srpski, uključujući kompletnu adaptaciju koda i interfejsa igre Dice Forge. Kreirao sam srpske prevode za indie igre uključujući Slay the Spire, The Curious Expedition i FTL: Faster Than Light.">Translated ~20% of BoardGameArena.com to Serbian, including full adaptation of Dice Forge game code and interface. Created Serbian translations for indie games including Slay the Spire, The Curious Expedition, and FTL: Faster Than Light.</p>
+            <p data-en="Translated ~20% of BoardGameArena.com to Serbian, including full adaptation of Dice Forge game code and interface. Created Serbian translations for indie games including Slay the Spire, The Curious Expedition, and FTL: Faster Than Light." data-sr="Preveo ~20% BoardGameArena.com na srpski, ukljuÄujuÄ‡i kompletnu adaptaciju koda i interfejsa igre Dice Forge. Kreirao sam srpske prevode za indie igre ukljuÄujuÄ‡i Slay the Spire, The Curious Expedition i FTL: Faster Than Light.">Translated ~20% of BoardGameArena.com to Serbian, including full adaptation of Dice Forge game code and interface. Created Serbian translations for indie games including Slay the Spire, The Curious Expedition, and FTL: Faster Than Light.</p>
             <div class="tech-stack">
               <span class="tech-badge" data-en="Localization" data-sr="Lokalizacija">Localization</span>
-              <span class="tech-badge" data-en="Translation" data-sr="Prevođenje">Translation</span>
+              <span class="tech-badge" data-en="Translation" data-sr="PrevoÄ‘enje">Translation</span>
               <span class="tech-badge" data-en="Cultural Adaptation" data-sr="Kulturna adaptacija">Cultural Adaptation</span>
             </div>
             <div class="white-button" style="margin-top: 15px;">
@@ -1381,7 +1380,7 @@
           <div class="section-heading">
             <h2 data-en="Legacy Projects Gallery" data-sr="Galerija starijih projekata">Legacy Projects Gallery</h2>
             <div class="line-dec"></div>
-            <span data-en="Past projects, translations, and experimental work." data-sr="Prošli projekti, prevodi i eksperimentalni rad.">Past projects, translations, and experimental work.</span>
+            <span data-en="Past projects, translations, and experimental work." data-sr="ProÅ¡li projekti, prevodi i eksperimentalni rad.">Past projects, translations, and experimental work.</span>
           </div>
 
           <!-- Filter Tabs -->
@@ -1432,7 +1431,7 @@
               <img src="assets/images/prevod3.jpg" alt="Technical Translation" loading="lazy" />
               <div class="gallery-overlay">
                 <h4 data-en="DiceForge Code" data-sr="DiceForge kod">DiceForge Code</h4>
-                <p data-en="Technical implementation" data-sr="Tehnička implementacija">Technical implementation</p>
+                <p data-en="Technical implementation" data-sr="TehniÄka implementacija">Technical implementation</p>
                 <a href="assets/images/prevod3.jpg" data-lightbox="gallery" data-title="Using RegEx for efficient translation workflow">
                   <i class="fa fa-search-plus"></i>
                 </a>
@@ -1444,7 +1443,7 @@
               <img src="assets/images/cs2d_grudvanje.jpg" alt="Snowball Fight" loading="lazy" />
               <div class="gallery-overlay">
                 <h4 data-en="Snowball Fight" data-sr="Borba grudvama">Snowball Fight</h4>
-                <p data-en="First official mod" data-sr="Prvi zvanični mod">First official mod</p>
+                <p data-en="First official mod" data-sr="Prvi zvaniÄni mod">First official mod</p>
                 <a href="assets/images/cs2d_grudvanje.jpg" data-lightbox="gallery" data-title="First published game mod in Lua">
                   <i class="fa fa-search-plus"></i>
                 </a>
@@ -1455,7 +1454,7 @@
               <img src="assets/images/lavirint.jpg" alt="Maze Generator" loading="lazy" />
               <div class="gallery-overlay">
                 <h4 data-en="Maze Generator" data-sr="Generator lavirinta">Maze Generator</h4>
-                <p data-en="A* pathfinding" data-sr="A* pronalaženje puta">A* pathfinding</p>
+                <p data-en="A* pathfinding" data-sr="A* pronalaÅ¾enje puta">A* pathfinding</p>
                 <a href="assets/images/lavirint.jpg" data-lightbox="gallery" data-title="Built with Godot engine, A* pathfinding">
                   <i class="fa fa-search-plus"></i>
                 </a>
@@ -1500,7 +1499,7 @@
               <img src="assets/images/hax_baza.jpg" alt="Database" loading="lazy" />
               <div class="gallery-overlay">
                 <h4 data-en="Database" data-sr="Baza podataka">Database</h4>
-                <p data-en="1300+ players" data-sr="1300+ igrača">1300+ players</p>
+                <p data-en="1300+ players" data-sr="1300+ igraÄa">1300+ players</p>
                 <a href="assets/images/hax_baza.jpg" data-lightbox="gallery" data-title="Cookie-based auto-login system">
                   <i class="fa fa-search-plus"></i>
                 </a>
@@ -1589,7 +1588,7 @@
         const preloader = document.getElementById('preloader');
         const progressBar = document.querySelector('.progress-bar');
         const startTime = Date.now();
-        const minLoadTime = 500;
+        const minLoadTime = 1000;
         
         let progress = 0;
         let assetsLoaded = false;
@@ -1819,8 +1818,6 @@
           });
         });
       });
-
-
 
     </script>
   </body>
