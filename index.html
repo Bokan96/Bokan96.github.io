@@ -1801,13 +1801,13 @@
         
         if (menuToggle) {
           menuToggle.addEventListener('click', function() {
-            menu.classList.add('active');
+            menu.classList.add('open');
           });
         }
         
         if (menuClose) {
           menuClose.addEventListener('click', function() {
-            menu.classList.remove('active');
+            menu.classList.remove('open');
           });
         }
         
@@ -1815,7 +1815,7 @@
         const menuLinks = document.querySelectorAll('.main-menu a');
         menuLinks.forEach(link => {
           link.addEventListener('click', function() {
-            menu.classList.remove('active');
+            menu.classList.remove('open');
           });
         });
       });
