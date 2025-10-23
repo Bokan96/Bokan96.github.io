@@ -7,6 +7,9 @@
     <meta name="description" content="Portfolio of Bojan Božović - Game Developer & Game Designer at Replai, specializing in mobile game design and player engagement" />
     <meta name="author" content="Bojan Božović" />
     
+    <!-- Dynamic Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/haxbo.png" id="favicon" />
+    
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Additional CSS Files -->
@@ -323,32 +326,6 @@
         cursor: pointer;
       }
       
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 14px;
-      }
-      
-      ::-webkit-scrollbar-track {
-        background: rgba(18, 64, 99, 0.2);
-        border-left: 1px solid rgba(68, 204, 204, 0.1);
-      }
-      
-      ::-webkit-scrollbar-thumb {
-        background: linear-gradient(180deg, #4CC 0%, #3AB 100%);
-        border-radius: 7px;
-        border: 2px solid rgba(18, 64, 99, 0.3);
-        transition: all 0.3s ease;
-      }
-      
-      ::-webkit-scrollbar-thumb:hover {
-        background: linear-gradient(180deg, #5DD 0%, #4CC 100%);
-        box-shadow: 0 0 15px rgba(68, 204, 204, 0.6);
-      }
-      
-      * {
-        scrollbar-width: auto;
-        scrollbar-color: #4CC rgba(18, 64, 99, 0.2);
-      }
       
       /* Hero Banner */
       .hero-banner {
@@ -1011,6 +988,64 @@
         }
       }
       
+      
+      /* Vertically center left-image in column */
+      .left-image-post .col-md-4 {
+        display: flex;
+        align-items: center;
+      }
+      
+      /* Vertically center right-image in column */
+      .right-image-post .col-md-4 {
+        display: flex;
+        align-items: center;
+      }
+      
+      .left-image {
+        width: 100%;
+      }
+      
+      .left-image img {
+        width: 100%;
+        border-radius: 8px;
+      }
+      
+      .right-image {
+        width: 100%;
+      }
+      
+      .right-image img {
+        width: 100%;
+        border-radius: 8px;
+      }
+      
+      /* Custom Scrollbar Styling */
+      ::-webkit-scrollbar {
+        width: 25px;
+      }
+      
+      ::-webkit-scrollbar-track {
+        background: linear-gradient(180deg, #124063 0%, #1e5a8e 50%, #124063 100%);
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #2874b0 0%, #1e5a8e 100%);
+        border-radius: 6px;
+        border: 2px solid rgba(68, 204, 204, 0.1);
+        transition: all 0.3s ease;
+      }
+      
+      ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, #4CC 0%, #3AB 100%);
+        border-color: rgba(68, 204, 204, 0.4);
+        box-shadow: 0 0 10px rgba(68, 204, 204, 0.3);
+      }
+      
+      /* Firefox Scrollbar */
+      * {
+        scrollbar-width: thin;
+        scrollbar-color: #2874b0 #124063;
+      }
     </style>
   </head>
 
@@ -1106,7 +1141,7 @@
                   
                   <p>I live to learn and to improve myself—always embracing difficult challenges rather than comfortably coasting through the familiar. This philosophy has driven nearly a decade of diverse technological exploration across multiple domains.</p>
                   
-                  <p>My professional journey spans <strong>web, desktop, and mobile application development</strong>, complemented by expertise in <strong>game development, video editing, and backend systems</strong>. I've been fortunate to work across varied sectors including <strong>gaming, advertising, healthcare technology, and data analytics</strong>—where precision and reliability are paramount.</p>
+                  <p>My professional journey spans <strong>web, desktop, and mobile application development</strong>, complemented by expertise in <strong>game development, video editing, and backend systems</strong>. I've been fortunate to work across varied sectors including <strong>gaming, advertising, healthcare technology, education and data analytics</strong>—where precision and reliability are paramount.</p>
                   
                   <p>This cross-disciplinary experience enables me to bring a well-rounded skill set and unique perspective to every project, transforming challenges into opportunities for innovation.</p>
 
@@ -1130,11 +1165,16 @@
           <!-- CS2D Journey -->
           <div class="left-image-post" style="margin-top: 80px;">
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-4">
+                <div class="left-image">
+                  <img src="assets/images/kuckanje.gif" alt="Early Development Journey" loading="lazy" />
+                </div>
+              </div>
+              <div class="col-md-8">
                 <div class="right-text">
                   <h4 data-en="Where It All Started" data-sr="Gde je sve poÄelo">Where It All Started</h4>
-                  <p>At 14, I started creating mods and maps for CS2D using Lua scripting. My work gained traction quicklyâ€”with creations reaching <strong>over 1,000 downloads</strong> and being hosted on dozens of servers. I became an <strong>official USGN modder and mapper</strong>, which taught me the fundamentals of game logic, player engagement, and community building.</p>
-                  <p>This early experience shaped how I think about games today. I learned that great gameplay comes from iteration, listening to players, and understanding what keeps them coming back.</p>
+                  <p>Having competed in math on <strong>national level</strong> combined with my general curiosity in math led me into programming by writing scripts for video game CS2D using Lua scripts at the age of <strong>14</strong>. My work gained traction quickly with creations reaching <strong>over 1,000 downloads</strong> and being hosted on dozens of servers. Took me just two years to become <strong>official USGN modder and mapper</strong>, which taught me the fundamentals of <strong>player engagement</strong> and <strong>community building</strong>.</p>
+                  <p>This early experience shaped how I think about my projects even today <strong>10 years later</strong>. I learned that the best gameplay comes from <strong>iteration</strong>, listening to <strong>player feedback</strong> and understanding what keeps them coming back.</p>
                 </div>
               </div>
             </div>
@@ -1168,7 +1208,7 @@
                   <p><span data-en="The project demonstrates proficiency in" data-sr="Projekat pokazuje veÅ¡tinu u">The project demonstrates proficiency in</span> <span class="highlight" data-en="JavaScript" data-sr="JavaScript-u">JavaScript</span><span data-en=", database management, cloud services, and community management (200+ active players). Over 5,400 lines of code managing game rules, player statistics, inventory systems, and real-time interactions." data-sr=", upravljanju bazama podataka, cloud servisima i upravljanju zajednicom (200+ aktivnih igraÄa). Preko 5,400 linija koda koje upravljaju pravilima igre, statistikama igraÄa, sistemima inventara i interakcijama u realnom vremenu.">, database management, cloud services, and community management (200+ active players). Over 5,400 lines of code managing game rules, player statistics, inventory systems, and real-time interactions.</span></p>
 
                   <div class="white-button">
-                    <a href="https://discord.gg/sC8CQWY" target="_blank">HaxBo Discord</a>
+                    <a href="https://discord.gg/VHzpbcWd" target="_blank">HaxBo Discord</a>
                   </div>
                 </div>
               </div>
@@ -1820,5 +1860,6 @@
       });
 
     </script>
+
   </body>
 </html>
