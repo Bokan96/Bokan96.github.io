@@ -1,0 +1,160 @@
+/* Phase A Existing Styles */
+/* Preloader Enhancements */
+.loading-percentage {
+  color: #4CC;
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 10px;
+  font-family: 'Lato', sans-serif;
+  text-shadow: 0 0 10px rgba(68, 204, 204, 0.5);
+}
+
+.loading-quote {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  font-style: italic;
+  margin-top: 15px;
+  min-height: 20px;
+  transition: opacity 0.5s ease;
+}
+
+/* Scroll Progress Indicator */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #4CC;
+  width: 0%;
+  z-index: 100000;
+  box-shadow: 0 0 10px rgba(68, 204, 204, 0.8);
+  transition: width 0.1s ease-out;
+}
+
+/* Icon Hover Animations */
+.social-icons li a {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.social-icons li a:hover {
+  transform: rotate(360deg) scale(1.1) !important;
+}
+
+.skill-category i {
+  transition: transform 0.3s ease;
+}
+
+.skill-category:hover i {
+  animation: pulseIcon 1s infinite;
+}
+
+@keyframes pulseIcon {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* =========================================
+   PHASE B: Button & Interaction Enhancements
+   ========================================= */
+
+/* B1. Button Effects */
+/* Bounce Animation Class (applied via JS) */
+.btn-bounce-anim {
+  animation: buttonBounce 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes buttonBounce {
+  0% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(0.9);
+  }
+
+  70% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Ripple Effect */
+.ripple-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  animation: rippleAnimation 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes rippleAnimation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* B2. Tech Badges Visibility */
+/* Hide by default */
+.project-card .tech-badge {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Staggered reveal on hover */
+.project-card:hover .tech-badge {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays for badges (up to 6 badges) */
+.project-card:hover .tech-badge:nth-child(1) {
+  transition-delay: 0.05s;
+}
+
+.project-card:hover .tech-badge:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.project-card:hover .tech-badge:nth-child(3) {
+  transition-delay: 0.15s;
+}
+
+.project-card:hover .tech-badge:nth-child(4) {
+  transition-delay: 0.2s;
+}
+
+.project-card:hover .tech-badge:nth-child(5) {
+  transition-delay: 0.25s;
+}
+
+.project-card:hover .tech-badge:nth-child(6) {
+  transition-delay: 0.3s;
+}
+
+/* Keep badges visible on mobile to ensure usability */
+@media (max-width: 768px) {
+  .project-card .tech-badge {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
