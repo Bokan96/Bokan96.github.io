@@ -21,9 +21,9 @@ function setLanguage(lang) {
         const srText = element.getAttribute('data-sr');
 
         if (lang === 'sr' && srText) {
-            element.textContent = srText;
+            element.innerHTML = srText;
         } else {
-            element.textContent = enText;
+            element.innerHTML = enText;
         }
     });
 

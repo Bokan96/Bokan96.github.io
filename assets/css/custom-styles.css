@@ -1132,3 +1132,396 @@ button,
     scrollbar-width: auto;
     scrollbar-color: #2874b0 #124063;
 }
+
+/* =========================================
+   Phase A Enhancements (Merged)
+   ========================================= */
+
+/* Preloader Enhancements */
+.loading-percentage {
+    color: #4CC;
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 10px;
+    font-family: 'Lato', sans-serif;
+    text-shadow: 0 0 10px rgba(68, 204, 204, 0.5);
+}
+
+.loading-quote {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    font-style: italic;
+    margin-top: 15px;
+    min-height: 20px;
+    transition: opacity 0.5s ease;
+}
+
+/* Scroll Progress Indicator */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: #4CC;
+    width: 0%;
+    z-index: 100000;
+    box-shadow: 0 0 10px rgba(68, 204, 204, 0.8);
+    transition: width 0.1s ease-out;
+}
+
+/* Icon Hover Animations */
+.social-icons li a {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.social-icons li a:hover {
+    transform: rotate(360deg) scale(1.1) !important;
+}
+
+.skill-category i {
+    transition: transform 0.3s ease;
+}
+
+.skill-category:hover i {
+    animation: pulseIcon 1s infinite;
+}
+
+@keyframes pulseIcon {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* =========================================
+   PHASE B: Button & Interaction Enhancements
+   ========================================= */
+
+/* B1. Button Effects */
+/* Bounce Animation Class (applied via JS) */
+.btn-bounce-anim {
+    animation: buttonBounce 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes buttonBounce {
+    0% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(0.9);
+    }
+
+    70% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Ripple Effect */
+.ripple-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple-effect {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(0);
+    animation: rippleAnimation 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes rippleAnimation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* B2. Tech Badges Visibility */
+/* Hide by default */
+.project-card .tech-badge {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Staggered reveal on hover */
+.project-card:hover .tech-badge {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger delays for badges (up to 6 badges) */
+.project-card:hover .tech-badge:nth-child(1) {
+    transition-delay: 0.05s;
+}
+
+.project-card:hover .tech-badge:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.project-card:hover .tech-badge:nth-child(3) {
+    transition-delay: 0.15s;
+}
+
+.project-card:hover .tech-badge:nth-child(4) {
+    transition-delay: 0.2s;
+}
+
+.project-card:hover .tech-badge:nth-child(5) {
+    transition-delay: 0.25s;
+}
+
+.project-card:hover .tech-badge:nth-child(6) {
+    transition-delay: 0.3s;
+}
+
+/* Keep badges visible on mobile to ensure usability */
+@media (max-width: 768px) {
+    .project-card .tech-badge {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   PHASE C: Skill Bars & Metrics
+   ========================================= */
+
+/* C2. Metrics Section */
+.metrics-section {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.metrics-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(68, 204, 204, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.metric-item {
+    text-align: center;
+    padding: 30px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    border: 1px solid rgba(68, 204, 204, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.metric-item:hover {
+    transform: translateY(-5px);
+    border-color: rgba(68, 204, 204, 0.5);
+    box-shadow: 0 10px 30px rgba(68, 204, 204, 0.2);
+}
+
+.metric-icon {
+    font-size: 40px;
+    color: #4CC;
+    margin-bottom: 15px;
+    animation: metricGlow 2s ease-in-out infinite;
+}
+
+@keyframes metricGlow {
+
+    0%,
+    100% {
+        text-shadow: 0 0 10px rgba(68, 204, 204, 0.5);
+    }
+
+    50% {
+        text-shadow: 0 0 20px rgba(68, 204, 204, 0.8), 0 0 30px rgba(68, 204, 204, 0.4);
+    }
+}
+
+.metric-number {
+    font-size: 48px;
+    font-weight: 700;
+    color: #fff;
+    margin: 10px 0;
+    font-family: 'Lato', sans-serif;
+}
+
+.metric-label {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* C1. Animated Skill Progress Bars */
+.skill-bars {
+    margin-top: 15px;
+}
+
+.skill-bar {
+    margin-bottom: 20px;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.skill-percent {
+    color: #4CC;
+    font-weight: 600;
+}
+
+.skill-track {
+    background: rgba(255, 255, 255, 0.1);
+    height: 8px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.skill-progress {
+    background: linear-gradient(90deg, #4CC 0%, #6EE 100%);
+    height: 100%;
+    border-radius: 10px;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+    animation: skillShimmer 2s infinite;
+}
+
+@keyframes skillShimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .metric-number {
+        font-size: 36px;
+    }
+
+    .metric-icon {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Metrics Section - Adjusted for Skills integration */
+.metrics-section {
+    background: transparent;
+    padding: 0;
+}
+
+.metrics-grid {
+    margin: 40px 0 30px 0 !important;
+}
+
+.metric-icon {
+    font-size: 36px !important;
+    margin-bottom: 12px !important;
+}
+
+.metric-number {
+    font-size: 42px !important;
+    margin: 8px 0 !important;
+}
+
+.metric-label {
+    font-size: 13px !important;
+}
+
+/* Fix service-item icon centering */
+.service-item i {
+    display: block !important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Responsive - reduce metric spacing on mobile */
+@media (max-width: 768px) {
+    .metrics-grid {
+        margin: 30px 0 20px 0 !important;
+    }
+
+    .metric-number {
+        font-size: 36px !important;
+    }
+
+    .metric-icon {
+        font-size: 32px !important;
+    }
+}
+
+/* Reduce metric card height */
+.metric-item {
+    padding: 20px 15px !important;
+}
+
+.metric-icon {
+    font-size: 32px !important;
+    margin-bottom: 10px !important;
+}
+
+.metric-number {
+    font-size: 38px !important;
+    margin: 6px 0 !important;
+}
+
+.metric-label {
+    font-size: 12px !important;
+}
