@@ -273,10 +273,7 @@ html {
 body {
     font-size: 16px;
     line-height: 1.6;
-    background: linear-gradient(to bottom,
-            #124063 0%,
-            #2e5c85 50%,
-            #FFD700 100%) !important;
+    background: #295a7d !important;
     background-attachment: fixed !important;
     background-size: cover !important;
     position: relative;

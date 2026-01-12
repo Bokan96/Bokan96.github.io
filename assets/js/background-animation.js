@@ -3,15 +3,21 @@ class ParticleNetwork {
         this.canvas = document.getElementById(canvasId);
         this.ctx = this.canvas.getContext('2d');
         this.particles = [];
+        this.mouse = {
+            x: null,
+            y: null,
+            radius: 120 // Radius of mouse influence (reduced for subtler effect)
+        };
         this.options = {
-            particleColor: 'rgba(255, 255, 255, 0.5)',
-            lineColor: 'rgba(68, 204, 204, 0.4)', // Teal color to match theme
-            particleAmount: 100,
-            defaultSpeed: 0.5,
-            variantSpeed: 1,
-            defaultRadius: 2,
-            variantRadius: 2,
-            linkRadius: 120,
+            particleColor: 'rgba(255, 255, 255, 0.7)', // Restored visibility
+            lineColor: 'rgba(68, 204, 204, 0.5)', // Teal color to match theme
+            particleAmount: 120,
+            defaultSpeed: 0.3,
+            variantSpeed: 0.5,
+            defaultRadius: 2, // Restored size
+            variantRadius: 2, // Restored variance
+            linkRadius: 150, // Increased for more web-like connections
+            mouseForce: 0.5 // Reduced for gentle push effect
         };
 
         this.init();
@@ -21,10 +27,25 @@ class ParticleNetwork {
         this.resize();
         this.createParticles();
         this.animate();
+        this.setupMouseInteraction();
 
         window.addEventListener('resize', () => {
             this.resize();
             this.createParticles(); // Recreate to fit new screen
+        });
+    }
+
+    setupMouseInteraction() {
+        // Track mouse position
+        window.addEventListener('mousemove', (e) => {
+            this.mouse.x = e.clientX;
+            this.mouse.y = e.clientY;
+        });
+
+        // Reset mouse position when leaving window
+        window.addEventListener('mouseleave', () => {
+            this.mouse.x = null;
+            this.mouse.y = null;
         });
     }
 
@@ -35,7 +56,7 @@ class ParticleNetwork {
 
     createParticles() {
         this.particles = [];
-        const particleCount = Math.floor((this.w * this.h) / 12000); // Responsive count
+        const particleCount = Math.max(80, Math.floor((this.w * this.h) / 10000)); // More particles
 
         for (let i = 0; i < particleCount; i++) {
             this.particles.push(new Particle(this));
@@ -48,13 +69,13 @@ class ParticleNetwork {
         for (let i = 0; i < this.particles.length; i++) {
             this.particles[i].update();
             this.particles[i].draw();
-            this.joinParticles(this.particles[i]);
+            this.linkParticles(this.particles[i]);
         }
 
         requestAnimationFrame(this.animate.bind(this));
     }
 
-    joinParticles(particle) {
+    linkParticles(particle) {
         for (let i = 0; i < this.particles.length; i++) {
             const p2 = this.particles[i];
             if (particle === p2) continue;
@@ -66,8 +87,9 @@ class ParticleNetwork {
             if (dist < this.options.linkRadius) {
                 this.ctx.beginPath();
                 this.ctx.strokeStyle = this.options.lineColor;
-                this.ctx.globalAlpha = 1 - (dist / this.options.linkRadius);
-                this.ctx.lineWidth = 0.5;
+                // Fade based on distance
+                this.ctx.globalAlpha = (1 - (dist / this.options.linkRadius)) * 0.8;
+                this.ctx.lineWidth = 1;
                 this.ctx.moveTo(particle.x, particle.y);
                 this.ctx.lineTo(p2.x, p2.y);
                 this.ctx.stroke();
@@ -82,17 +104,50 @@ class Particle {
         this.network = network;
         this.x = Math.random() * network.w;
         this.y = Math.random() * network.h;
+        this.baseX = this.x;
+        this.baseY = this.y;
         this.vx = (Math.random() - 0.5) * network.options.defaultSpeed;
         this.vy = (Math.random() - 0.5) * network.options.defaultSpeed;
-        this.size = Math.random() * 2 + 1;
+        this.size = Math.random() * network.options.variantRadius + network.options.defaultRadius;
     }
 
     update() {
-        this.x += this.vx;
-        this.y += this.vy;
+        // Natural floating movement
+        this.baseX += this.vx;
+        this.baseY += this.vy;
 
-        if (this.x < 0 || this.x > this.network.w) this.vx *= -1;
-        if (this.y < 0 || this.y > this.network.h) this.vy *= -1;
+        // Bounce off walls
+        if (this.baseX < 0 || this.baseX > this.network.w) this.vx *= -1;
+        if (this.baseY < 0 || this.baseY > this.network.h) this.vy *= -1;
+
+        // Mouse interaction - gentle push effect
+        if (this.network.mouse.x !== null && this.network.mouse.y !== null) {
+            const dx = this.network.mouse.x - this.baseX;
+            const dy = this.network.mouse.y - this.baseY;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < this.network.mouse.radius) {
+                // Calculate gentle repulsion force
+                const force = (this.network.mouse.radius - dist) / this.network.mouse.radius;
+                const angle = Math.atan2(dy, dx);
+                const forceX = Math.cos(angle) * force * this.network.options.mouseForce;
+                const forceY = Math.sin(angle) * force * this.network.options.mouseForce;
+
+                // Apply gentle force (gradually shift away from cursor)
+                const targetX = this.baseX - forceX * 30;
+                const targetY = this.baseY - forceY * 30;
+                this.x += (targetX - this.x) * 0.08; // Smooth interpolation
+                this.y += (targetY - this.y) * 0.08;
+            } else {
+                // Smoothly return to base position
+                this.x += (this.baseX - this.x) * 0.05;
+                this.y += (this.baseY - this.y) * 0.05;
+            }
+        } else {
+            // No mouse, smoothly return to base position
+            this.x += (this.baseX - this.x) * 0.05;
+            this.y += (this.baseY - this.y) * 0.05;
+        }
     }
 
     draw() {
@@ -100,6 +155,12 @@ class Particle {
         this.network.ctx.fillStyle = this.network.options.particleColor;
         this.network.ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         this.network.ctx.fill();
+
+        // Add a subtle glow effect
+        this.network.ctx.shadowBlur = 8;
+        this.network.ctx.shadowColor = 'rgba(68, 204, 204, 0.4)';
+        this.network.ctx.fill();
+        this.network.ctx.shadowBlur = 0;
     }
 }
 
