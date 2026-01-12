@@ -1602,3 +1602,11 @@ button,
 .metric-label {
     font-size: 12px !important;
 }
+
+/* Section Container Overlay for Better Text Separation */
+section .container {
+    background: rgba(20, 45, 60, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
