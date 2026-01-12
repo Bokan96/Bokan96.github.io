@@ -9,14 +9,14 @@ class ParticleNetwork {
             radius: 120 // Radius of mouse influence (reduced for subtler effect)
         };
         this.options = {
-            particleColor: 'rgba(255, 255, 255, 0.7)', // Restored visibility
+            particleColor: 'rgba(255, 255, 255, 0.4)', // More transparent for better text readability
             lineColor: 'rgba(68, 204, 204, 0.5)', // Teal color to match theme
-            particleAmount: 120,
+            particleAmount: 160, // Increased density
             defaultSpeed: 0.3,
             variantSpeed: 0.5,
-            defaultRadius: 2, // Restored size
+            defaultRadius: 1.5, // Slightly smaller nodes
             variantRadius: 2, // Restored variance
-            linkRadius: 150, // Increased for more web-like connections
+            linkRadius: 180, // Increased connection range for less empty space
             mouseForce: 0.5 // Reduced for gentle push effect
         };
 
@@ -56,10 +56,26 @@ class ParticleNetwork {
 
     createParticles() {
         this.particles = [];
-        const particleCount = Math.max(80, Math.floor((this.w * this.h) / 10000)); // More particles
+        // Determine density based on screen area
+        const particleCount = Math.max(80, Math.floor((this.w * this.h) / 10000));
 
-        for (let i = 0; i < particleCount; i++) {
-            this.particles.push(new Particle(this));
+        // Calculate grid for even distribution
+        // We want cols/rows ratio to match aspect ratio approximates
+        const aspectRatio = this.w / this.h;
+        const cols = Math.floor(Math.sqrt(particleCount * aspectRatio));
+        const rows = Math.ceil(particleCount / cols);
+
+        const colWidth = this.w / cols;
+        const rowHeight = this.h / rows;
+
+        for (let r = 0; r < rows; r++) {
+            for (let c = 0; c < cols; c++) {
+                // Place partially random within grid cell (with padding to prevent clustering)
+                // Using 0.15 buffer on each side ensures nodes are never too close
+                const x = c * colWidth + (colWidth * 0.15) + Math.random() * (colWidth * 0.7);
+                const y = r * rowHeight + (rowHeight * 0.15) + Math.random() * (rowHeight * 0.7);
+                this.particles.push(new Particle(this, x, y));
+            }
         }
     }
 
@@ -100,10 +116,11 @@ class ParticleNetwork {
 }
 
 class Particle {
-    constructor(network) {
+    constructor(network, x, y) {
         this.network = network;
-        this.x = Math.random() * network.w;
-        this.y = Math.random() * network.h;
+        // Use provided coordinates or fallback to random
+        this.x = x !== undefined ? x : Math.random() * network.w;
+        this.y = y !== undefined ? y : Math.random() * network.h;
         this.baseX = this.x;
         this.baseY = this.y;
         this.vx = (Math.random() - 0.5) * network.options.defaultSpeed;

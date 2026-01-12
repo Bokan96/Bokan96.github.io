@@ -622,7 +622,8 @@ button,
 }
 
 .skill-category {
-    background: rgba(250, 250, 250, 0.05);
+    background: rgba(20, 45, 60, 0.6);
+    /* Theme Dark Blue */
     padding: 20px;
     border-radius: 8px;
     border-left: 3px solid #4CC;
@@ -648,6 +649,8 @@ button,
 
 .skill-category:hover {
     transform: translateY(-5px);
+    background: rgba(20, 45, 60, 0.8);
+    /* Darker on hover */
     box-shadow: 0 8px 25px rgba(68, 204, 204, 0.2);
 }
 
@@ -691,7 +694,8 @@ button,
     flex-direction: column;
     animation: fadeInUp 0.6s ease-out;
     transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.3s ease;
-    background: rgba(250, 250, 250, 0.05);
+    background: rgba(20, 45, 60, 0.6);
+    /* Theme Dark Blue */
     padding: 25px;
     border-radius: 15px;
     border: 1px solid rgba(68, 204, 204, 0.1);
@@ -699,7 +703,8 @@ button,
 
 .service-item:hover {
     transform: translateY(-5px);
-    background: rgba(250, 250, 250, 0.12);
+    background: rgba(20, 45, 60, 0.8);
+    /* Darker on hover */
     box-shadow: 0 8px 25px rgba(68, 204, 204, 0.3);
     border-color: rgba(68, 204, 204, 0.3);
 }
@@ -739,6 +744,67 @@ button,
 .service-item:hover li,
 .service-item:hover li strong {
     color: #fff !important;
+}
+
+/* Project Cards - Styled to match Service Items */
+.project-card {
+    background: rgba(20, 45, 60, 0.6);
+    /* Theme Dark Blue */
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(68, 204, 204, 0.1);
+    transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    background: rgba(20, 45, 60, 0.8);
+    /* Darker on hover */
+    box-shadow: 0 8px 25px rgba(68, 204, 204, 0.3);
+    border-color: rgba(68, 204, 204, 0.3);
+}
+
+.project-card h4 {
+    color: #4CC;
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.project-card h4 i {
+    margin-right: 10px;
+}
+
+.project-card p {
+    color: #fff;
+    flex-grow: 1;
+}
+
+/* Tech Stack Badges */
+.tech-stack {
+    margin: 15px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tech-badge {
+    background: rgba(68, 204, 204, 0.1);
+    border: 1px solid rgba(68, 204, 204, 0.3);
+    color: #4CC;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.project-card:hover .tech-badge {
+    background: rgba(68, 204, 204, 0.2);
+    border-color: rgba(68, 204, 204, 0.5);
 }
 
 /* Achievements */
