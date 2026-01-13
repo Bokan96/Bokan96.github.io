@@ -271,6 +271,7 @@ html {
 }
 
 body {
+    font-family: 'Outfit', sans-serif !important;
     font-size: 16px;
     line-height: 1.6;
     background: #295a7d !important;
@@ -341,6 +342,11 @@ body {
     z-index: 101;
 }
 
+.about-me p,
+.about-me .achievement {
+    text-align: justify;
+}
+
 
 img {
     max-width: 100%;
@@ -359,6 +365,15 @@ button,
     cursor: pointer;
 }
 
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Inter', sans-serif !important;
+}
 
 /* Hero Banner */
 .hero-banner {
@@ -666,6 +681,7 @@ button,
 }
 
 .skill-category li {
+    display: block;
     padding: 5px 0;
     color: #fff;
 }
@@ -737,8 +753,27 @@ button,
         0 0 30px rgba(68, 204, 204, 0.3);
 }
 
+.service-item ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+    text-align: left;
+}
+
 .service-item li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 12px;
     color: #fff;
+    line-height: 1.4;
+}
+
+.service-item li:before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: #4CC;
+    font-weight: bold;
 }
 
 .service-item:hover li,
@@ -1220,7 +1255,7 @@ button,
     font-size: 24px;
     font-weight: 700;
     margin-top: 10px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
     text-shadow: 0 0 10px rgba(68, 204, 204, 0.5);
 }
 
@@ -1445,7 +1480,7 @@ button,
     font-weight: 700;
     color: #fff;
     margin: 10px 0;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 .metric-label {

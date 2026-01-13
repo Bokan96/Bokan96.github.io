@@ -6,18 +6,18 @@ class ParticleNetwork {
         this.mouse = {
             x: null,
             y: null,
-            radius: 120 // Radius of mouse influence (reduced for subtler effect)
+            radius: 800 // Radius of mouse influence (reduced for subtler effect)
         };
         this.options = {
             particleColor: 'rgba(255, 255, 255, 0.4)', // More transparent for better text readability
             lineColor: 'rgba(68, 204, 204, 0.5)', // Teal color to match theme
             particleAmount: 160, // Increased density
-            defaultSpeed: 0.3,
-            variantSpeed: 0.5,
+            defaultSpeed: 0.4,
+            variantSpeed: 0.7,
             defaultRadius: 1.5, // Slightly smaller nodes
             variantRadius: 2, // Restored variance
             linkRadius: 180, // Increased connection range for less empty space
-            mouseForce: 0.5 // Reduced for gentle push effect
+            mouseForce: 1.2 // Reduced for gentle push effect
         };
 
         this.init();
