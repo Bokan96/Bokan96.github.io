@@ -57,7 +57,7 @@ class ParticleNetwork {
     createParticles() {
         this.particles = [];
         // Determine density based on screen area
-        const particleCount = Math.max(80, Math.floor((this.w * this.h) / 10000));
+        const particleCount = Math.max(30, Math.floor((this.w * this.h) / 10000));
 
         // Calculate grid for even distribution
         // We want cols/rows ratio to match aspect ratio approximates
