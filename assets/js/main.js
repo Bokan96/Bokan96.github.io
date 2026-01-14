@@ -389,11 +389,20 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     const emailBtn = document.getElementById('email-btn');
     const originalLabel = "bozovic.bokan@gmail.com";
-    const copiedLabel = "Email copied!";
+
+    // Localization object for JS
+    const jsTranslations = {
+        en: { emailCopied: "Email copied!" },
+        sr: { emailCopied: "Email kopiran!" }
+    };
 
     if (emailBtn) {
         emailBtn.addEventListener('click', function (e) {
             e.preventDefault();
+
+            // Get current language from global state or localStorage
+            const lang = currentLang || localStorage.getItem('language') || 'en';
+            const copiedLabel = jsTranslations[lang].emailCopied;
 
             // Copy to clipboard
             navigator.clipboard.writeText(originalLabel).then(() => {
