@@ -248,10 +248,56 @@
 }
 
 /* Social media icons */
+.social-title {
+    display: block;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #4CC;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 10px rgba(68, 204, 204, 0.2);
+}
+
 .social-network .social-icons li a {
     background: rgba(68, 204, 204, 0.1);
     border: 1px solid rgba(68, 204, 204, 0.3);
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
+    /* Slowed down from 0.3s */
+    position: relative;
+}
+
+.social-network .social-icons li a::after {
+    content: attr(aria-label);
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    /* Start slightly lower */
+    background: #124063;
+    color: #fff;
+    padding: 5px 10px;
+    /* Slightly larger padding */
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: none;
+    /* Instant disappear */
+    pointer-events: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(68, 204, 204, 0.4);
+    z-index: 100;
+    font-weight: 600;
+}
+
+.social-network .social-icons li a:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    transition: all 0.4s ease-out 0.4s;
+    /* Smooth fade in, 0.4s delay */
 }
 
 .social-network .social-icons li a:hover {
@@ -259,10 +305,18 @@
     border-color: #4CC;
     box-shadow: 0 0 15px rgba(68, 204, 204, 0.4);
     transform: scale(1.1);
+    /* Kept scale but it will be slower due to transition above */
 }
 
 .social-network .social-icons li a i {
     color: #4CC;
+    transition: transform 0.5s ease;
+    /* Ensure icon also transitions smoothly */
+}
+
+.social-network .social-icons li a:hover i {
+    transform: rotate(360deg);
+    /* ADD ROTATION ON HOVER - Maybe this is what they wanted or expecting? Or maybe I should ensure NO rotation? */
 }
 
 /* Base Styles */

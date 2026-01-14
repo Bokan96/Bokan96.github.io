@@ -385,3 +385,47 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+// Email Copy Functionality
+document.addEventListener('DOMContentLoaded', function () {
+    const emailBtn = document.getElementById('email-btn');
+    const originalLabel = "bozovic.bokan@gmail.com";
+    const copiedLabel = "Email copied!";
+
+    if (emailBtn) {
+        emailBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            // Copy to clipboard
+            navigator.clipboard.writeText(originalLabel).then(() => {
+                // Change tooltip text
+                this.setAttribute('aria-label', copiedLabel);
+
+                // Add a class for potential styling changes if needed
+                this.classList.add('copied');
+
+                // Revert after 2 seconds
+                setTimeout(() => {
+                    this.setAttribute('aria-label', originalLabel);
+                    this.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                // Fallback for older browsers or if clipboard fails
+                const textArea = document.createElement("textarea");
+                textArea.value = originalLabel;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    this.setAttribute('aria-label', copiedLabel);
+                    setTimeout(() => {
+                        this.setAttribute('aria-label', originalLabel);
+                    }, 2000);
+                } catch (err) {
+                    console.error('Fallback copy failed', err);
+                }
+                document.body.removeChild(textArea);
+            });
+        });
+    }
+});
