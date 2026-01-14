@@ -359,3 +359,29 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+// Inline Gallery Link Auto-Filter
+document.addEventListener('DOMContentLoaded', function () {
+    const galleryLinks = document.querySelectorAll('.inline-gallery-link');
+    galleryLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href.startsWith('#')) {
+                // If it points to a gallery item, try to find its category and filter
+                const targetId = href.substring(1);
+                const targetItem = document.getElementById(targetId);
+                if (targetItem) {
+                    const category = targetItem.getAttribute('data-category');
+                    const categoryBtn = document.querySelector(`.filter-btn[data-filter="${category}"]`);
+                    if (categoryBtn && !categoryBtn.classList.contains('active')) {
+                        categoryBtn.click();
+                        // Wait for filter animation/pagination before scrolling
+                        setTimeout(() => {
+                            targetItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }, 100);
+                    }
+                }
+            }
+        });
+    });
+});
