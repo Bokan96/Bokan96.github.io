@@ -1726,6 +1726,10 @@ section .container {
 /* Minimal Card Stats */
 .card-mini-stats {
     display: flex;
+    align-items: center;
+    /* Added for better alignment when wrapping */
+    flex-wrap: wrap;
+    /* Enable wrapping */
     gap: 20px;
     margin: 15px 0;
     padding: 10px 0;
