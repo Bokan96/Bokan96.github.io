@@ -311,6 +311,20 @@ document.addEventListener('DOMContentLoaded', function () {
             menu.classList.remove('open');
         });
     });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function (event) {
+        if (!menu.contains(event.target) && !menuToggle.contains(event.target) && menu.classList.contains('open')) {
+            menu.classList.remove('open');
+        }
+    });
+
+    // Close menu on scroll
+    window.addEventListener('scroll', function () {
+        if (menu.classList.contains('open')) {
+            menu.classList.remove('open');
+        }
+    }, { passive: true });
 });
 
 // =========================================
