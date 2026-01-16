@@ -15,6 +15,10 @@
     transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
+body.preloader-active {
+    overflow: hidden !important;
+}
+
 #preloader.fade-out {
     opacity: 0;
     visibility: hidden;
@@ -333,6 +337,33 @@ body {
     background-size: cover !important;
     position: relative;
     /* Ensure body doesn't block canvas */
+}
+
+/* Custom Scrollbar Width Enhancement (approx 15% increase) */
+::-webkit-scrollbar {
+    width: 14px;
+    height: 14px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(18, 64, 99, 0.4);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(68, 204, 204, 0);
+    /* Start fully transparent */
+    border-radius: 10px;
+    border: 3px solid rgba(18, 64, 99, 1);
+    transition: background 1.5s ease-out;
+}
+
+/* Scrollbar fade-in animation triggers when preloader is gone */
+body:not(.preloader-active) ::-webkit-scrollbar-thumb {
+    background: rgba(68, 204, 204, 0.4);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(68, 204, 204, 0.7) !important;
 }
 
 /* Background Canvas */
@@ -1851,45 +1882,45 @@ section .container {
     transform: translateY(0);
 }
 
-/* Staggered delays for skill and service bullets - relative to category delay */
+/* Staggered delays for skill and service bullets - relative to category delay (0.2s steps) */
 .skill-category li:nth-child(1),
 .service-item li:nth-child(1) {
-    transition-delay: calc(var(--base-delay, 0s) + 0.3s) !important;
+    transition-delay: calc(var(--base-delay, 0s) + 0.2s) !important;
 }
 
 .skill-category li:nth-child(2),
 .service-item li:nth-child(2) {
-    transition-delay: calc(var(--base-delay, 0s) + 0.6s) !important;
+    transition-delay: calc(var(--base-delay, 0s) + 0.4s) !important;
 }
 
 .skill-category li:nth-child(3),
 .service-item li:nth-child(3) {
-    transition-delay: calc(var(--base-delay, 0s) + 0.9s) !important;
+    transition-delay: calc(var(--base-delay, 0s) + 0.6s) !important;
 }
 
 .skill-category li:nth-child(4),
 .service-item li:nth-child(4) {
-    transition-delay: calc(var(--base-delay, 0s) + 1.2s) !important;
+    transition-delay: calc(var(--base-delay, 0s) + 0.8s) !important;
 }
 
 .skill-category li:nth-child(5),
 .service-item li:nth-child(5) {
-    transition-delay: calc(var(--base-delay, 0s) + 1.5s) !important;
+    transition-delay: calc(var(--base-delay, 0s) + 1.0s) !important;
 }
 
 .skill-category li:nth-child(6),
 .service-item li:nth-child(6) {
-    transition-delay: calc(var(--base-delay, 0s) + 1.8s) !important;
+    transition-delay: calc(var(--base-delay, 0s) + 1.2s) !important;
 }
 
 .skill-category li:nth-child(7),
 .service-item li:nth-child(7) {
-    transition-delay: calc(var(--base-delay, 0s) + 2.1s) !important;
+    transition-delay: calc(var(--base-delay, 0s) + 1.4s) !important;
 }
 
 .skill-category li:nth-child(8),
 .service-item li:nth-child(8) {
-    transition-delay: calc(var(--base-delay, 0s) + 2.4s) !important;
+    transition-delay: calc(var(--base-delay, 0s) + 1.6s) !important;
 }
 
 /* Faster hover transitions after elements are revealed */

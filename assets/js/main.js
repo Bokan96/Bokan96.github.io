@@ -57,6 +57,7 @@ document.getElementById('lang-sr').addEventListener('click', () => setLanguage('
 
 // Initialize on load
 document.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('preloader-active');
     setLanguage(currentLang);
 });
 
@@ -123,6 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             setTimeout(() => {
                 preloader.classList.add('fade-out');
+                document.body.classList.remove('preloader-active');
                 setTimeout(() => {
                     preloader.style.display = 'none';
                 }, 500);
