@@ -75,8 +75,11 @@ document.addEventListener('DOMContentLoaded', () => {
         '"A game is a series of interesting choices." - Sid Meier'
     ];
 
+    // Select a random starting quote
+    let quoteIndex = Math.floor(Math.random() * quotes.length);
+    if (quoteText) quoteText.textContent = quotes[quoteIndex];
+
     // Cycle quotes
-    let quoteIndex = 0;
     const quoteInterval = setInterval(() => {
         quoteIndex = (quoteIndex + 1) % quotes.length;
         if (quoteText) {
