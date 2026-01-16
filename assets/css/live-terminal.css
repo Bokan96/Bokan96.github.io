@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    height: 300px;
+    height: 350px;
     /* Fixed height as requested */
     box-sizing: border-box;
     transition: height 0.6s cubic-bezier(0.16, 1, 0.3, 1),
@@ -108,7 +108,7 @@
     flex: 1 1 auto;
     /* Grow and shrink to fill space */
     height: calc(100% - 127px);
-    /* CRITICAL: Explicitly limit height to available space (300 - 42 - 85) */
+    /* CRITICAL: Explicitly limit height to available space (350 - 42 - 85) */
     min-height: 0;
     /* CRITICAL: Allows flex item to shrink below content size, enabling scroll */
     overflow-y: hidden;
@@ -117,7 +117,6 @@
     font-size: 13px;
     line-height: 1.5;
     /* 19.5px per line */
-    cursor: text;
     position: relative;
 }
 
@@ -185,21 +184,31 @@
 }
 
 .terminal-option-btn {
-    background: rgba(56, 139, 253, 0.15);
-    border: 1px solid #1f6feb;
+    background: rgba(56, 139, 253, 0.1);
+    border: 1px solid rgba(31, 111, 235, 0.4);
     color: #58a6ff;
-    padding: 3px 8px;
+    padding: 6px 12px;
     border-radius: 4px;
     cursor: pointer;
     font-family: inherit;
     font-size: 11px;
-    transition: all 0.2s;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
     white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .terminal-option-btn:hover {
-    background: rgba(56, 139, 253, 0.3);
-    transform: translateY(-1px);
+    background: rgba(56, 139, 253, 0.2);
+    border-color: #58a6ff;
+    color: #fff;
+    transform: translateX(4px);
+    box-shadow: 0 0 12px rgba(88, 166, 255, 0.2);
+}
+
+.terminal-option-btn:active {
+    transform: translateX(2px) scale(0.98);
 }
 
 /* Cursor */

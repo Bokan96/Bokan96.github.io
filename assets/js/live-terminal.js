@@ -15,7 +15,7 @@
     // --- CONFIGURATION ---
     const TYPE_SPEED_MIN = 15;
     const TYPE_SPEED_MAX = 35;
-    const PAUSE_SENTENCE = 800;
+    const PAUSE_SENTENCE = 450;
     const PAUSE_WORD = 60;
 
     // --- STATE ---
@@ -27,8 +27,8 @@
 
     // --- CONTENT DATA ---
     const INTRO_SEQUENCE = [
-        { text: "> Initializing environment...", class: "text-blue" },
-        { text: "> Loading Bojan_Profile modules: [GameDesign, SystemArch, Analytics]", class: "text-green" },
+        { text: "> Initializing environment...", class: "text-blue", delay: 200 },
+        { text: "> Loading Bojan_Profile modules...", class: "text-green", delay: 300 },
         { text: "> Connection established.", class: "text-green", delay: 400 },
         { text: " " },
         { text: "Hello! I am an interactive terminal representing Bojan's codebase.", delay: 300 },
@@ -294,11 +294,11 @@
         });
     }
 
-    // Auto-expand after 6 seconds if not interacted
+    // Auto-expand after 5 seconds if not interacted
     setTimeout(() => {
         if (!hasUserInteracted && terminalWrapper.classList.contains('closed')) {
             toggleTerminal();
         }
-    }, 6000);
+    }, 5000);
 
 })();

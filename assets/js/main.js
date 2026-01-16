@@ -148,7 +148,7 @@ window.addEventListener('scroll', () => {
 document.addEventListener('DOMContentLoaded', function () {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const galleryItems = document.querySelectorAll('.gallery-item');
-    const itemsPerPage = 9;
+    const itemsPerPage = 4;
     let currentPage = 1;
     let currentFilter = 'all';
 
@@ -207,7 +207,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (currentPage > 1) {
             currentPage--;
             updatePagination();
-            document.querySelector('.gallery-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     });
 
@@ -217,7 +216,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (currentPage < totalPages) {
             currentPage++;
             updatePagination();
-            document.querySelector('.gallery-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     });
 
