@@ -1,3 +1,9 @@
+// Force scroll to top on refresh
+if (history.scrollRestoration) {
+    history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
 // Language System
 const translations = {
     en: {},
@@ -451,4 +457,30 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
+});
+
+/**
+ * SCROLL REVEAL ANIMATIONS
+ * Triggers fade-in animations when elements enter the viewport
+ */
+document.addEventListener('DOMContentLoaded', function () {
+    const observerOptions = {
+        threshold: 0.05,
+        rootMargin: '0px 0px -10px 0px'
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                // Stop observing once it's visible to keep it there (only animate once)
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    const revealElements = document.querySelectorAll('.reveal-on-scroll, .reveal-card');
+    revealElements.forEach(el => {
+        revealObserver.observe(el);
+    });
 });
