@@ -1,0 +1,81 @@
+/* Image Card Effects */
+.image-effect-container {
+    perspective: 1000px;
+    width: 100%;
+    position: relative;
+    border-radius: 12px;
+}
+
+.parallax-card {
+    position: relative;
+    width: 100%;
+    transition: transform 0.1s ease-out, scale 0.2s ease;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: block;
+    overflow: hidden;
+    /* Keep the shine inside */
+}
+
+/* Variant for transparent images (like circular logos) */
+.parallax-card.no-frame {
+    box-shadow: none;
+    overflow: hidden;
+    /* Clip the shine to the circle */
+    border-radius: 100%;
+    /* Force circular shape */
+    /* Ensure the tilt doesn't reveal corners */
+    transform: translateZ(0);
+}
+
+/* Click/Active effect - "Pushed" look */
+.parallax-card:active {
+    scale: 0.95;
+    transition: scale 0.05s ease;
+}
+
+.parallax-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    backface-visibility: hidden;
+    /* Filter to ensure it pops on transparency */
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+}
+
+.parallax-card.no-frame img {
+    border-radius: 0;
+    /* Original shape */
+}
+
+/* Base Shine Glow */
+.parallax-card::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at var(--shine-x, 50%) var(--shine-y, 50%),
+            rgba(255, 255, 255, 0.35) 0%,
+            rgba(255, 255, 255, 0) 50%);
+    pointer-events: none;
+    z-index: 3;
+    opacity: var(--shine-opacity, 0);
+    transition: opacity 0.3s ease;
+}
+
+/* Subtle border/depth overlay - Disabled for no-frame */
+.parallax-card:not(.no-frame)::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent, rgba(0, 0, 0, 0.3));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    pointer-events: none;
+    z-index: 2;
+}

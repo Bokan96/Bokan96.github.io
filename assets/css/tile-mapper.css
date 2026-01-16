@@ -1,0 +1,171 @@
+/* Tile Mapper Styles */
+.tile-mapper-container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    /* max-width: 350px; Match the terminal width visual */
+    background: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid #333;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: height 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 400px;
+    /* Default height */
+}
+
+/* Minimized State */
+.tile-mapper-container.closed {
+    height: 42px;
+    /* Header only */
+}
+
+.tile-mapper-container.closed .mapper-canvas-wrapper,
+.tile-mapper-container.closed .mapper-status {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.mapper-header {
+    background: #2d2d2d;
+    padding: 12px 15px;
+    border-bottom: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 42px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.mapper-toggle-btn {
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 0;
+    line-height: 1;
+    margin-left: 10px;
+}
+
+.mapper-toggle-btn:hover {
+    color: #fff;
+}
+
+/* Traffic Lights */
+.traffic-lights {
+    display: flex;
+    gap: 8px;
+}
+
+.light {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.light.red {
+    background: #ff5f56;
+}
+
+.light.yellow {
+    background: #ffbd2e;
+}
+
+.light.green {
+    background: #27c93f;
+}
+
+.mapper-title {
+    font-size: 13px;
+    color: #ccc;
+    font-weight: 600;
+}
+
+.mapper-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.mapper-btn {
+    background: #333;
+    border: 1px solid #444;
+    color: #aaa;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.mapper-btn:hover,
+.mapper-btn.active {
+    background: #444;
+    color: #fff;
+    border-color: #555;
+}
+
+.mapper-btn.active {
+    background: #4a4a4a;
+    border-color: #666;
+    color: #4cc;
+    /* Cyan highlight */
+}
+
+.mapper-canvas-wrapper {
+    position: relative;
+    width: 100%;
+    background: #111;
+    cursor: crosshair;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+canvas#tileCanvas {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    image-rendering: pixelated;
+    /* Essential for retro feel */
+}
+
+.mapper-status {
+    padding: 8px 12px;
+    background: #1e1e1e;
+    border-top: 1px solid #333;
+    font-size: 11px;
+    color: #666;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.mapper-status .mapper-controls {
+    gap: 6px;
+}
+
+.mapper-status .mapper-btn {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+}
+
+.path-found {
+    color: #27c93f;
+}
+
+.path-blocked {
+    color: #ff5f56;
+}

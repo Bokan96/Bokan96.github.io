@@ -343,10 +343,12 @@ body {
 ::-webkit-scrollbar {
     width: 14px;
     height: 14px;
+    cursor: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 4L14 26L18 17L27 13L6 4Z' fill='%23FFBD2E' stroke='%23124063' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E") 6 4, pointer;
 }
 
 ::-webkit-scrollbar-track {
     background: rgba(18, 64, 99, 0.4);
+    cursor: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 4L14 26L18 17L27 13L6 4Z' fill='%23FFBD2E' stroke='%23124063' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E") 6 4, pointer;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -355,6 +357,13 @@ body {
     border-radius: 10px;
     border: 3px solid rgba(18, 64, 99, 1);
     transition: background 1.5s ease-out;
+    cursor: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 4L14 26L18 17L27 13L6 4Z' fill='%23FFBD2E' stroke='%23124063' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E") 6 4, pointer;
+}
+
+/* Ensure menu scrollbar also gets it */
+.menu,
+.responsive-nav {
+    scrollbar-color: #4CC rgba(18, 64, 99, 0.4);
 }
 
 /* Scrollbar fade-in animation triggers when preloader is gone */
@@ -439,6 +448,25 @@ img {
 }
 
 /* Interactive cursor */
+body {
+    cursor: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 4L14 26L18 17L27 13L6 4Z' fill='%234CC' stroke='%23124063' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E") 6 4, auto;
+}
+
+/* Text Selection Cursor */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea,
+span,
+.terminal-body {
+    cursor: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14 6h4v20h-4zM12 6h8v2h-8zM12 24h8v2h-8z' fill='%234CC'/%3E%3C/svg%3E") 16 16, text;
+}
+
 a,
 button,
 .white-button,
@@ -446,8 +474,12 @@ button,
 .skill-category,
 .service-item,
 .isotope-toolbar label,
-.main-menu a {
-    cursor: pointer;
+.main-menu a,
+#terminal-toggle,
+.terminal-option-btn,
+.mapper-btn,
+.mapper-toggle-btn {
+    cursor: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 4L14 26L18 17L27 13L6 4Z' fill='%23FFBD2E' stroke='%23124063' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E") 6 4, pointer;
 }
 
 
