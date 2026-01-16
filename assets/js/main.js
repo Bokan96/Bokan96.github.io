@@ -488,4 +488,32 @@ document.addEventListener('DOMContentLoaded', function () {
     revealElements.forEach(el => {
         revealObserver.observe(el);
     });
+
+    // Terminal Hero Scroll-Away
+    initTerminalScrollAway();
 });
+
+/**
+ * TERMINAL HERO SCROLL-AWAY
+ * Hides the terminal banner when user scrolls down
+ */
+function initTerminalScrollAway() {
+    const terminal = document.getElementById('hero-terminal');
+    if (!terminal) return;
+
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll > 50 && currentScroll > lastScroll) {
+            // Scrolling down
+            terminal.classList.add('hidden');
+        } else if (currentScroll < lastScroll) {
+            // Scrolling up
+            terminal.classList.remove('hidden');
+        }
+
+        lastScroll = currentScroll;
+    });
+}

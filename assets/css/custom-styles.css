@@ -461,79 +461,17 @@ h6 {
 }
 
 /* Hero Banner */
+/* Hero Banner - Managed by terminal-hero.css */
 .hero-banner {
-    height: 180px;
-    background: linear-gradient(135deg, #124063 0%, #1e5a8e 30%, #2874b0 60%, #124063 100%);
-    background-size: 300% 300%;
-    animation: gradientShift 8s ease infinite;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    overflow: visible;
+    position: sticky;
+    top: 0;
+    z-index: 100;
     margin-bottom: 0;
-    border-radius: 0 0 18px 18px;
-    border: 2px solid rgba(68, 204, 204, 0.3);
-    border-top: none;
-    box-shadow: inset 0 0 30px rgba(68, 204, 204, 0.1);
 }
 
-@keyframes gradientShift {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-/* Animated particles */
-.hero-banner::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-        radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
-        radial-gradient(circle, rgba(68, 204, 204, 0.2) 1px, transparent 1px);
-    background-size: 50px 50px, 80px 80px;
-    background-position: 0 0, 40px 40px;
-    animation: particleFloat 30s linear infinite;
-    z-index: 1;
-}
-
-@keyframes particleFloat {
-    0% {
-        transform: translateY(0);
-    }
-
-    100% {
-        transform: translateY(-80px);
-    }
-}
-
-/* Gradient fade */
-.hero-banner::after {
-    content: '';
-    position: absolute;
-    bottom: -30px;
-    left: 0;
-    right: 0;
-    height: 80px;
-    background: linear-gradient(to bottom,
-            rgba(18, 64, 99, 0) 0%,
-            rgba(18, 64, 99, 0.3) 40%,
-            rgba(18, 64, 99, 0.6) 70%,
-            rgba(18, 64, 99, 0) 100%);
-    filter: blur(15px);
-    pointer-events: none;
-    z-index: -1;
-    border-radius: 0 0 18px 18px;
-}
 
 .hero-content {
     text-align: center;
@@ -543,34 +481,46 @@ h6 {
 }
 
 .hero-content h1 {
-    font-size: 48px;
+    font-size: 56px;
     font-weight: 900;
     color: #fff;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-    animation: fadeInUp 1s ease-out, floatTitle 3s ease-in-out infinite;
+    margin-bottom: 5px;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    background: linear-gradient(to bottom, #fff 40%, rgba(255, 255, 255, 0.7) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes floatTitle {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-5px);
-    }
+.hero-content p {
+    font-size: 18px;
+    color: #4CC;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.9;
+    animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) backwards;
 }
 
-.hero-content .tagline {
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.95);
-    max-width: 600px;
-    margin: 0 auto;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    animation: fadeInUp 1s ease-out 0.4s backwards;
+#hero-interactive-canvas {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
 }
+
+.hero-node {
+    position: absolute;
+    background: rgba(68, 204, 204, 0.15);
+    border: 1px solid rgba(68, 204, 204, 0.4);
+    border-radius: 50%;
+    filter: blur(8px);
+    transition: all 0.5s ease;
+}
+
 
 @keyframes fadeInUp {
     from {

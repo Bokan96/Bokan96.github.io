@@ -23,6 +23,7 @@
 
 
   <link rel="stylesheet" href="assets/css/custom-styles.css" />
+  <link rel="stylesheet" href="assets/css/terminal-hero.css" />
 </head>
 
 <body>
@@ -111,12 +112,58 @@
 
     <!-- About Section -->
     <section class="section about-me" data-section="section1">
-      <div class="hero-banner">
-        <div class="hero-content">
-          <h1>Bojan Božović</h1>
-          <div class="tagline" data-en="Crafting engaging player experiences | Multiple Top 10 Grossing mobile titles"
-            data-sr="Stvaram angažujuća iskustva za igrače | Više Top 10 mobilnih igara po zaradi">Crafting engaging
-            player experiences | Multiple Top 10 Grossing mobile titles</div>
+      <div class="hero-banner" id="hero-terminal">
+        <div class="terminal-container">
+          <div class="terminal-header">
+            <div class="terminal-buttons">
+              <span class="btn-close"></span>
+              <span class="btn-minimize"></span>
+              <span class="btn-maximize"></span>
+            </div>
+            <div class="terminal-title">career.sys</div>
+          </div>
+          <div class="terminal-body">
+            <div class="terminal-line" data-type-line>
+              <span class="prompt">$</span>
+              <span class="command" data-text="init --profile bojan_bozovic"></span>
+            </div>
+            <div class="terminal-line" data-type-line>
+              <span class="prompt">></span>
+              <span class="output-text" data-text="Initializing career systems..."></span>
+            </div>
+            <div class="terminal-line" data-type-line>
+              <span class="prompt">></span>
+              <span class="output-text" data-text="Loading expertise modules..."></span>
+            </div>
+            <div class="terminal-line" data-type-line>
+              <span class="prompt">✓</span>
+              <span class="output-text success" data-text="Game Design Lead [LOADED]"></span>
+            </div>
+            <div class="terminal-line" data-type-line>
+              <span class="prompt">✓</span>
+              <span class="output-text success" data-text="Unity Systems Expert [LOADED]"></span>
+            </div>
+            <div class="terminal-line" data-type-line>
+              <span class="prompt">✓</span>
+              <span class="output-text success" data-text="Top 10 Grossing Titles [VERIFIED]"></span>
+            </div>
+            <div class="terminal-line" data-type-line>
+              <span class="prompt">></span>
+              <span class="output-text" data-text="Compiling achievements..."></span>
+            </div>
+            <div class="terminal-line" data-type-line>
+              <span class="prompt">✓</span>
+              <span class="output-text success" data-text="15+ developers scaled [OK]"></span>
+            </div>
+            <div class="terminal-line" data-type-line>
+              <span class="prompt">></span>
+              <span class="output-text ready" data-text="[READY] All systems operational"></span>
+            </div>
+            <div class="terminal-line">
+              <span class="prompt">$</span>
+              <span class="cursor-blink">_</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -459,17 +506,20 @@
                 Progress</span>
             </div>
           </div>
-          <p data-en="Currently building a WebGL version of the strategic board game Village Pillage. Features intricate resource management and player vs player strategy. This project showcases modern web game development and state management."
-            data-sr="Trenutno gradim WebGL verziju strateške društvene igre Village Pillage. Sadrži složeno upravljanje resursima i strategiju igrač protiv igrača. Ovaj projekat prikazuje savremeni razvoj web igara i upravljanje stanjem.">
+          <p data-en="Currently building a WebGL version of the strategic board game Village Pillage. Features intricate resource management, a sophisticated computer AI for single-player challenges, and a robust online multiplayer mode with room codes. This project showcases modern web game development, network synchronization, and complex state management."
+            data-sr="Trenutno gradim WebGL verziju strateške društvene igre Village Pillage. Sadrži složeno upravljanje resursima, naprednu veštačku inteligenciju za solo izazove, i robusni online multiplayer mod sa kodovima soba. Ovaj projekat prikazuje savremeni razvoj web igara, sinhronizaciju mreže i kompleksno upravljanje stanjem.">
             Currently building a WebGL version of the strategic board game Village Pillage. Features intricate resource
-            management and player vs player strategy. This project showcases modern web game development and state
-            management.</p>
+            management, a sophisticated computer AI for single-player challenges, and a robust online multiplayer mode
+            with room codes. This project showcases modern web game development, network synchronization, and complex
+            state management.</p>
           <a href="#village-pillage-gallery" class="inline-gallery-link">
             <i class="fa fa-image"></i>
             <span data-en="View Project Gallery" data-sr="Pogledaj galeriju projekta">View Project Gallery</span>
           </a>
           <div class="tech-stack">
             <span class="tech-badge">WebGL</span>
+            <span class="tech-badge">Socket.io</span>
+            <span class="tech-badge">AI</span>
             <span class="tech-badge">JavaScript</span>
           </div>
           <div class="white-button" style="margin-top: 15px;">
@@ -901,6 +951,7 @@
   <script src="assets/js/lightbox.js"></script>
 
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/terminal-hero.js"></script>
   <script src="assets/js/background-animation.js"></script>
 </body>
 
