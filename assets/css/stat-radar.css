@@ -60,32 +60,3 @@
     border-style: solid;
     border-color: #4CC transparent transparent transparent;
 }
-
-/* Visibility Toggles */
-.mobile-only {
-    display: none;
-}
-
-.desktop-only {
-    display: block;
-}
-
-/* Responsive Logic */
-@media (max-width: 768px) {
-    .interactive-radar-container {
-        min-height: auto;
-        display: block;
-    }
-
-    .desktop-only {
-        display: none !important;
-    }
-
-    .mobile-only {
-        display: block !important;
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    }
-}

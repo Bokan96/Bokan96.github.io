@@ -246,22 +246,3 @@
     display: none;
     /* Chrome/Safari */
 }
-
-/* Visibility classes for responsiveness (reusing from previous step logic) */
-.mobile-only {
-    display: none;
-}
-
-.desktop-only {
-    display: block;
-}
-
-@media (max-width: 991px) {
-    .desktop-only {
-        display: none !important;
-    }
-
-    .mobile-only {
-        display: block !important;
-    }
-}
