@@ -169,3 +169,10 @@ canvas#tileCanvas {
 .path-blocked {
     color: #ff5f56;
 }
+
+/* Responsive spacing */
+@media screen and (max-width: 767px) {
+    .tile-mapper-container {
+        margin-bottom: 40px;
+    }
+}

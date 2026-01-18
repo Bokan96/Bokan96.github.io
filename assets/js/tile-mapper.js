@@ -40,7 +40,6 @@
     let startPos = { x: 1, y: 1 };
     let endPos = { x: COLS - 2, y: ROWS - 2 };
     let botPos = { ...startPos };
-    let currentTool = 'wall'; // 'wall', 'floor', 'start', 'end'
     let isDrawing = false;
     let path = [];
     let botPathIndex = 0;
@@ -193,22 +192,36 @@
         return { x, y };
     }
 
+    let dragAction = null; // 'add' or 'remove'
+
     function handleInput(x, y) {
         if (x < 0 || x >= COLS || y < 0 || y >= ROWS) return;
 
         // Prevent modifying start/end unless moving them
         if ((x === startPos.x && y === startPos.y) || (x === endPos.x && y === endPos.y)) return;
 
-        if (currentTool === 'wall') grid[y][x] = 1;
-        if (currentTool === 'floor') grid[y][x] = 0;
+        if (dragAction === 'add') {
+            grid[y][x] = 1;
+        } else if (dragAction === 'remove') {
+            grid[y][x] = 0;
+        }
 
         updatePath();
         draw();
     }
 
     canvas.addEventListener('mousedown', (e) => {
-        isDrawing = true;
         const p = getTilePos(e);
+        if (p.x < 0 || p.x >= COLS || p.y < 0 || p.y >= ROWS) return;
+
+        // Determine action based on clicked tile
+        if (grid[p.y][p.x] === 1) {
+            dragAction = 'remove';
+        } else {
+            dragAction = 'add';
+        }
+
+        isDrawing = true;
         handleInput(p.x, p.y);
     });
 
@@ -219,27 +232,19 @@
         }
     });
 
-    window.addEventListener('mouseup', () => isDrawing = false);
+    window.addEventListener('mouseup', () => {
+        isDrawing = false;
+        dragAction = null;
+    });
 
     // Tools
-    document.getElementById('tool-wall')?.addEventListener('click', function () {
-        currentTool = 'wall';
-        updateActiveBtn(this);
-    });
-    document.getElementById('tool-floor')?.addEventListener('click', function () {
-        currentTool = 'floor';
-        updateActiveBtn(this);
-    });
     document.getElementById('tool-clear')?.addEventListener('click', function () {
         initGrid();
         updatePath();
         draw();
     });
 
-    function updateActiveBtn(el) {
-        document.querySelectorAll('.mapper-btn').forEach(b => b.classList.remove('active'));
-        el.classList.add('active');
-    }
+
 
     const toggleBtn = document.getElementById('mapper-toggle');
     const headerEl = document.getElementById('mapper-header');
