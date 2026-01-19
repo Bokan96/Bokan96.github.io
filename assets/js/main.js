@@ -411,7 +411,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // Email Copy Functionality
 document.addEventListener('DOMContentLoaded', function () {
     const emailBtn = document.getElementById('email-btn');
-    const originalLabel = "bozovic.bokan@gmail.com";
+    const originalLabel = "contact@bojanbozovic.com";
 
     // Localization object for JS
     const jsTranslations = {
