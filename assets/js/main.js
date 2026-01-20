@@ -14,30 +14,46 @@ const translations = {
 let currentLang = localStorage.getItem('language') || 'en';
 
 function setLanguage(lang) {
-    currentLang = lang;
-    localStorage.setItem('language', lang);
+    if (currentLang === lang) return;
 
-    // Update button states
+    const elements = document.querySelectorAll('[data-en]');
+
+    // Trigger fade out
+    elements.forEach(el => el.classList.add('lang-switching'));
+
+    // Update buttons immediately for instant feedback
     document.getElementById('lang-en').classList.toggle('active', lang === 'en');
     document.getElementById('lang-sr').classList.toggle('active', lang === 'sr');
 
-    // Update all translatable elements
-    document.querySelectorAll('[data-en]').forEach(element => {
-        const enText = element.getAttribute('data-en');
-        const srText = element.getAttribute('data-sr');
+    // Wait for fade out to complete
+    setTimeout(() => {
+        currentLang = lang;
+        localStorage.setItem('language', lang);
 
-        if (lang === 'sr' && srText) {
-            element.innerHTML = srText;
-        } else {
-            element.innerHTML = enText;
-        }
-    });
+        // Update all translatable elements
+        elements.forEach(element => {
+            const enText = element.getAttribute('data-en');
+            const srText = element.getAttribute('data-sr');
 
-    // Update pagination text
-    updatePaginationText();
+            // Skip if this is the pagination info (it's handled by updatePaginationText)
+            if (element.id === 'pageInfo') return;
 
-    // Update HTML lang attribute
-    document.documentElement.lang = lang === 'sr' ? 'sr' : 'en';
+            if (lang === 'sr' && srText) {
+                element.innerHTML = srText;
+            } else {
+                element.innerHTML = enText;
+            }
+        });
+
+        // Update pagination text
+        updatePaginationText();
+
+        // Update HTML lang attribute
+        document.documentElement.lang = lang === 'sr' ? 'sr' : 'en';
+
+        // Trigger fade in
+        elements.forEach(el => el.classList.remove('lang-switching'));
+    }, 200);
 }
 
 // Store current pagination state globally
@@ -71,9 +87,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const minLoadTime = 2500; // Increased to allow reading quotes
 
     const quotes = [
-        '"The best games are made by those who play." - Unknown',
-        '"Games are the only way to save the world." - Jane McGonigal',
-        '"A game is a series of interesting choices." - Sid Meier'
+        '"A game is a series of interesting choices." - Sid Meier',
+        '"The goal is to create a game that is easy to learn but difficult to master." - Reiner Knizia',
+        '"Code is read much more often than it is written." - Guido van Rossum',
+        '"Simplicity is the soul of efficiency." - Austin Freeman'
     ];
 
     // Select a random starting quote
