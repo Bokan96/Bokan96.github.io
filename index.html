@@ -120,35 +120,60 @@
           <h2 data-en="About Me" data-sr="O meni">About Me</h2>
           <div class="line-dec"></div>
         </div>
+        <audio id="about-me-voiceover" src="assets/sounds/github_intro_voiceover.mp3"></audio>
 
         <div class="right-image-post">
           <div class="row">
             <div class="col-md-8">
               <div class="left-text">
-                <p data-en="Hello! My name is <strong>Bojan Božović</strong>, and I'm a software developer with a passion for game design and mathematical problem-solving."
-                  data-sr="Zdravo! Zovem se <strong>Bojan Božović</strong> i ja sam softverski inženjer sa strašću za dizajn igara i rešavanje matematičkih problema.">
-                  Hello! My name is <strong>Bojan Božović</strong>, and I'm a software developer with a passion for
-                  game design and mathematical problem-solving.</p>
-
-                <p data-en="I live to learn and to improve myself - always embracing difficult challenges rather than comfortably coasting through the familiar. This philosophy has driven nearly a decade of diverse technological exploration across multiple domains."
-                  data-sr="Živim da učim i usavršavam se - uvek prihvatajući teške izazove umesto da se udobno prepuštam poznatom. Ova filozofija je vodila skoro deceniju raznovrsnog tehnološkog istraživanja kroz više domena.">
-                  I live to learn and to improve myself - always embracing difficult challenges rather than comfortably
-                  coasting through the familiar. This philosophy has driven nearly a decade of diverse technological
-                  exploration across multiple domains.</p>
-
-                <p data-en="My professional journey spans <strong>web, desktop, and mobile application development</strong>, complemented by expertise in <strong>game development, video editing, and backend systems</strong>. I've been fortunate to work across varied sectors including <strong>data analytics, gaming, advertising, education, and healthcare technology</strong> - where precision and reliability are paramount."
-                  data-sr="Moj profesionalni put obuhvata <strong>razvoj web, desktop i mobilnih aplikacija</strong>, dopunjen ekspertizom u <strong>razvoju igara, video montaži i backend sistemima</strong>. Imao sam sreću da radim u različitim sektorima uključujući <strong>analitiku podataka, gejming, oglašavanje, obrazovanje i zdravstvenu tehnologiju</strong> - gde su preciznost i pouzdanost najvažniji.">
-                  My professional journey spans <strong>web, desktop, and mobile application development</strong>,
-                  complemented by expertise in <strong>game development, video editing, and backend systems</strong>.
-                  I've been fortunate to work across varied sectors including <strong>data analytics, gaming,
-                    advertising, education, and healthcare technology</strong> - where precision and reliability are
-                  paramount.
+                <p>
+                  <button id="voiceover-toggle" class="voiceover-btn" aria-label="Play Voiceover"
+                    style="background: none; border: none; font-size: 26px; cursor: pointer; color: #4CC; padding: 0; outline: none; margin-right: 12px; vertical-align: middle;"
+                    title="Play Voiceover">
+                    <i class="fa fa-volume-up" id="voiceover-icon"></i>
+                  </button>
+                  <span class="vo-sentence" data-start="0" data-end="7"
+                    data-en="Hello! My name is <strong>Bojan Božović</strong>, and I'm a software developer with a passion for game design and mathematical problem-solving."
+                    data-sr="Zdravo! Zovem se <strong>Bojan Božović</strong> i ja sam softverski inženjer sa strašću za dizajn igara i rešavanje matematičkih problema.">Hello!
+                    My name is <strong>Bojan Božović</strong>, and I'm a software developer with a passion for game
+                    design and mathematical problem-solving.</span>
                 </p>
 
-                <p data-en="This cross-disciplinary experience enables me to bring a well-rounded skill set and unique perspective to every project, transforming challenges into opportunities for innovation."
-                  data-sr="Ovo multidisciplinarno iskustvo omogućava mi da donesem svestran set veština i jedinstvenu perspektivu u svaki projekat, transformišući izazove u prilike za inovaciju.">
-                  This cross-disciplinary experience enables me to bring a well-rounded skill set and unique
-                  perspective to every project, transforming challenges into opportunities for innovation.</p>
+                <p>
+                  <span class="vo-sentence" data-start="7" data-end="16.5"
+                    data-en="I live to learn and to improve myself - always embracing difficult challenges rather than comfortably coasting through the familiar."
+                    data-sr="Živim da učim i usavršavam se - uvek prihvatajući teške izazove umesto da se udobno prepuštam poznatom.">I
+                    live to learn and to improve myself - always embracing difficult challenges rather than comfortably
+                    coasting through the familiar.</span>
+                  <span class="vo-sentence" data-start="16.5" data-end="24"
+                    data-en="This philosophy has driven nearly a decade of diverse technological exploration across multiple domains."
+                    data-sr="Ova filozofija je vodila skoro deceniju raznovrsnog tehnološkog istraživanja kroz više domena.">This
+                    philosophy has driven nearly a decade of diverse technological exploration across multiple
+                    domains.</span>
+                </p>
+
+                <p>
+                  <span class="vo-sentence" data-start="24" data-end="35"
+                    data-en="My professional journey spans <strong>web, desktop, and mobile application development</strong>, complemented by expertise in <strong>game development, video editing, and backend systems</strong>."
+                    data-sr="Moj profesionalni put obuhvata <strong>razvoj web, desktop i mobilnih aplikacija</strong>, dopunjen ekspertizom u <strong>razvoju igara, video montaži i backend sistemima</strong>.">My
+                    professional journey spans <strong>web, desktop, and mobile application development</strong>,
+                    complemented by expertise in <strong>game development, video editing, and backend
+                      systems</strong>.</span>
+                  <span class="vo-sentence" data-start="35" data-end="49"
+                    data-en="I've been fortunate to work across varied sectors including <strong>data analytics, gaming, advertising, education, and healthcare technology</strong> - where precision and reliability are paramount."
+                    data-sr="Imao sam sreću da radim u različitim sektorima uključujući <strong>analitiku podataka, gejming, oglašavanje, obrazovanje i zdravstvenu tehnologiju</strong> - gde su preciznost i pouzdanost najvažniji.">I've
+                    been fortunate to work across varied sectors including <strong>data analytics, gaming, advertising,
+                      education, and healthcare technology</strong> - where precision and reliability are
+                    paramount.</span>
+                </p>
+
+                <p>
+                  <span class="vo-sentence" data-start="49" data-end="63"
+                    data-en="This cross-disciplinary experience enables me to bring a well-rounded skill set and unique perspective to every project, transforming challenges into opportunities for innovation."
+                    data-sr="Ovo multidisciplinarno iskustvo omogućava mi da donesem svestran set veština i jedinstvenu perspektivu u svaki projekat, transformišući izazove u prilike za inovaciju.">This
+                    cross-disciplinary experience enables me to bring a well-rounded skill set and unique perspective to
+                    every project, transforming challenges into opportunities for innovation.</span>
+                </p>
 
 
                 <div class="white-button">

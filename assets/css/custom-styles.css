@@ -2055,3 +2055,19 @@ section .container {
         box-shadow 0.3s ease,
         border-color 0.3s ease;
 }
+
+/* Voiceover Karaoke Highlight effect */
+.vo-sentence {
+    transition: color 0.3s ease, background-color 0.3s ease, text-shadow 0.3s ease;
+    border-radius: 4px;
+    padding: 0 2px;
+}
+
+.vo-sentence.highlight-sentence {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Dark background to make text pop */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    /* Slight outer shadow to blend background edges */
+}

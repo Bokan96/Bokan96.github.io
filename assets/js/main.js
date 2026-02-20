@@ -51,6 +51,24 @@ function setLanguage(lang) {
         // Update HTML lang attribute
         document.documentElement.lang = lang === 'sr' ? 'sr' : 'en';
 
+        // Update voiceover button state (disable for Serbian)
+        const voiceoverBtn = document.getElementById('voiceover-toggle');
+        const voiceoverAudio = document.getElementById('about-me-voiceover');
+        if (voiceoverBtn) {
+            if (lang === 'sr') {
+                voiceoverBtn.style.opacity = '0.3';
+                voiceoverBtn.style.pointerEvents = 'none';
+                if (voiceoverAudio && !voiceoverAudio.paused) {
+                    voiceoverAudio.pause();
+                    const icon = document.getElementById('voiceover-icon');
+                    if (icon) icon.className = 'fa fa-volume-up';
+                }
+            } else {
+                voiceoverBtn.style.opacity = '1';
+                voiceoverBtn.style.pointerEvents = 'auto';
+            }
+        }
+
         // Trigger fade in
         elements.forEach(el => el.classList.remove('lang-switching'));
     }, 200);
@@ -503,4 +521,57 @@ document.addEventListener('DOMContentLoaded', function () {
     revealElements.forEach(el => {
         revealObserver.observe(el);
     });
+});
+
+// =========================================
+// Voiceover Functionality
+// =========================================
+document.addEventListener('DOMContentLoaded', function () {
+    const voiceoverBtn = document.getElementById('voiceover-toggle');
+    const voiceoverAudio = document.getElementById('about-me-voiceover');
+    const voiceoverIcon = document.getElementById('voiceover-icon');
+    const sentences = document.querySelectorAll('.vo-sentence');
+
+    if (voiceoverBtn && voiceoverAudio && voiceoverIcon) {
+        voiceoverBtn.addEventListener('click', function () {
+            if (voiceoverAudio.paused) {
+                voiceoverAudio.play();
+                voiceoverIcon.className = 'fa fa-pause';
+            } else {
+                voiceoverAudio.pause();
+                voiceoverIcon.className = 'fa fa-volume-up';
+            }
+        });
+
+        // Highlight sentences as audio plays
+        voiceoverAudio.addEventListener('timeupdate', function () {
+            const currentTime = voiceoverAudio.currentTime;
+
+            sentences.forEach(sentence => {
+                const start = parseFloat(sentence.getAttribute('data-start'));
+                const end = parseFloat(sentence.getAttribute('data-end'));
+
+                if (!voiceoverAudio.paused && currentTime >= start && currentTime < end) {
+                    sentence.classList.add('highlight-sentence');
+                } else {
+                    sentence.classList.remove('highlight-sentence');
+                }
+            });
+        });
+
+        // Reset highlight when paused or ended
+        voiceoverAudio.addEventListener('pause', function () {
+            voiceoverIcon.className = 'fa fa-volume-up';
+            sentences.forEach(sentence => {
+                sentence.classList.remove('highlight-sentence');
+            });
+        });
+
+        voiceoverAudio.addEventListener('ended', function () {
+            voiceoverIcon.className = 'fa fa-volume-up';
+            sentences.forEach(sentence => {
+                sentence.classList.remove('highlight-sentence');
+            });
+        });
+    }
 });
