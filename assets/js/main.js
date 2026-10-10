@@ -13,6 +13,55 @@ const translations = {
 // Initialize language
 let currentLang = localStorage.getItem('language') || 'en';
 
+// Apply a language to the page immediately (no fade, no early return)
+function applyLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('language', lang);
+
+    document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+    document.getElementById('lang-sr').classList.toggle('active', lang === 'sr');
+
+    // Update all translatable elements
+    document.querySelectorAll('[data-en]').forEach(element => {
+        const enText = element.getAttribute('data-en');
+        const srText = element.getAttribute('data-sr');
+
+        // Skip if this is the pagination info (it's handled by updatePaginationText)
+        if (element.id === 'pageInfo') return;
+
+        if (lang === 'sr' && srText) {
+            element.innerHTML = srText;
+        } else {
+            element.innerHTML = enText;
+        }
+    });
+
+    // Update pagination text
+    updatePaginationText();
+
+    // Update HTML lang attribute
+    document.documentElement.lang = lang === 'sr' ? 'sr' : 'en';
+
+    // Update voiceover button state (disable for Serbian)
+    const voiceoverBtn = document.getElementById('voiceover-toggle');
+    const voiceoverAudio = document.getElementById('about-me-voiceover');
+    if (voiceoverBtn) {
+        if (lang === 'sr') {
+            voiceoverBtn.style.opacity = '0.3';
+            voiceoverBtn.style.pointerEvents = 'none';
+            if (voiceoverAudio && !voiceoverAudio.paused) {
+                voiceoverAudio.pause();
+                const icon = document.getElementById('voiceover-icon');
+                if (icon) icon.className = 'fa fa-volume-up';
+            }
+        } else {
+            voiceoverBtn.style.opacity = '1';
+            voiceoverBtn.style.pointerEvents = 'auto';
+        }
+    }
+}
+
+// Switch language from the toggle buttons, with a fade transition
 function setLanguage(lang) {
     if (currentLang === lang) return;
 
@@ -27,47 +76,7 @@ function setLanguage(lang) {
 
     // Wait for fade out to complete
     setTimeout(() => {
-        currentLang = lang;
-        localStorage.setItem('language', lang);
-
-        // Update all translatable elements
-        elements.forEach(element => {
-            const enText = element.getAttribute('data-en');
-            const srText = element.getAttribute('data-sr');
-
-            // Skip if this is the pagination info (it's handled by updatePaginationText)
-            if (element.id === 'pageInfo') return;
-
-            if (lang === 'sr' && srText) {
-                element.innerHTML = srText;
-            } else {
-                element.innerHTML = enText;
-            }
-        });
-
-        // Update pagination text
-        updatePaginationText();
-
-        // Update HTML lang attribute
-        document.documentElement.lang = lang === 'sr' ? 'sr' : 'en';
-
-        // Update voiceover button state (disable for Serbian)
-        const voiceoverBtn = document.getElementById('voiceover-toggle');
-        const voiceoverAudio = document.getElementById('about-me-voiceover');
-        if (voiceoverBtn) {
-            if (lang === 'sr') {
-                voiceoverBtn.style.opacity = '0.3';
-                voiceoverBtn.style.pointerEvents = 'none';
-                if (voiceoverAudio && !voiceoverAudio.paused) {
-                    voiceoverAudio.pause();
-                    const icon = document.getElementById('voiceover-icon');
-                    if (icon) icon.className = 'fa fa-volume-up';
-                }
-            } else {
-                voiceoverBtn.style.opacity = '1';
-                voiceoverBtn.style.pointerEvents = 'auto';
-            }
-        }
+        applyLanguage(lang);
 
         // Trigger fade in
         elements.forEach(el => el.classList.remove('lang-switching'));
@@ -92,7 +101,7 @@ document.getElementById('lang-sr').addEventListener('click', () => setLanguage('
 // Initialize on load
 document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.add('preloader-active');
-    setLanguage(currentLang);
+    applyLanguage(currentLang);
 });
 
 // Preloader Logic with Image Preloading
@@ -102,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const percentageText = document.getElementById('loadingPercentage');
     const quoteText = document.getElementById('loadingQuote');
     const startTime = Date.now();
-    const minLoadTime = 2500; // Increased to allow reading quotes
+    const minLoadTime = 600; // Short minimum so the preloader doesn't just flash
 
     const quotes = [
         '"A game is a series of interesting choices." - Sid Meier',
@@ -128,30 +137,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3000);
 
     let progress = 0;
-    let assetsLoaded = false;
 
-    // Preload gallery images
-    const galleryImages = document.querySelectorAll('.gallery-item img');
-    let imagesLoaded = 0;
-    const totalImages = galleryImages.length;
-
-    galleryImages.forEach(img => {
-        const image = new Image();
-        image.onload = image.onerror = () => {
-            imagesLoaded++;
-            progress = (imagesLoaded / totalImages) * 90;
-            progressBar.style.width = progress + '%';
-            if (percentageText) percentageText.textContent = Math.round(progress) + '%';
-        };
-        image.src = img.src;
-    });
+    // Ease the bar towards 90% until the page finishes loading
+    // (gallery images stay lazy-loaded instead of being preloaded here)
+    const progressInterval = setInterval(() => {
+        progress += (90 - progress) * 0.15;
+        progressBar.style.width = progress + '%';
+        if (percentageText) percentageText.textContent = Math.round(progress) + '%';
+    }, 50);
 
     window.addEventListener('load', () => {
-        assetsLoaded = true;
         const loadTime = Date.now() - startTime;
         const remainingTime = Math.max(0, minLoadTime - loadTime);
 
         setTimeout(() => {
+            clearInterval(progressInterval);
             progress = 100;
             progressBar.style.width = '100%';
             if (percentageText) percentageText.textContent = '100%';
@@ -226,17 +226,31 @@ document.addEventListener('DOMContentLoaded', function () {
             totalPages > 1 ? 'flex' : 'none';
     }
 
+    function setFilter(filter) {
+        currentFilter = filter;
+        filterBtns.forEach(b => b.classList.toggle('active', b.getAttribute('data-filter') === filter));
+    }
+
     filterBtns.forEach(btn => {
         btn.addEventListener('click', function () {
-            currentFilter = this.getAttribute('data-filter');
+            setFilter(this.getAttribute('data-filter'));
             currentPage = 1;
-
-            filterBtns.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-
             updatePagination();
         });
     });
+
+    // Filter and paginate so a specific gallery item is visible, then scroll to it
+    window.showGalleryItem = function (id) {
+        const targetItem = document.getElementById(id);
+        if (!targetItem) return;
+
+        setFilter(targetItem.getAttribute('data-category'));
+        const index = getFilteredItems().indexOf(targetItem);
+        currentPage = Math.floor(index / itemsPerPage) + 1;
+        updatePagination();
+
+        targetItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    };
 
     document.getElementById('prevBtn').addEventListener('click', () => {
         if (currentPage > 1) {
@@ -257,50 +271,19 @@ document.addEventListener('DOMContentLoaded', function () {
     updatePagination();
 });
 
-$(".main-menu li:first").addClass("active");
-
-var showSection = function showSection(section, isAnimate) {
-    var direction = section.replace(/#/, ""),
-        reqSection = $(".section").filter('[data-section="' + direction + '"]'),
-        reqSectionPos = reqSection.offset().top - 0;
-
-    if (isAnimate) {
-        $("body, html").animate({ scrollTop: reqSectionPos }, 800);
-    } else {
-        $("body, html").scrollTop(reqSectionPos);
-    }
-};
-
-var checkSection = function checkSection() {
-    $(".section").each(function () {
-        var $this = $(this),
-            topEdge = $this.offset().top - 80,
-            bottomEdge = topEdge + $this.height(),
-            wScroll = $(window).scrollTop();
-        if (topEdge < wScroll && bottomEdge > wScroll) {
-            var currentId = $this.data("section"),
-                reqLink = $("a").filter("[href*=\\#" + currentId + "]");
-            reqLink.closest("li").addClass("active").siblings().removeClass("active");
-        }
-    });
-};
-
-$(".main-menu").on("click", "a", function (e) {
-    e.preventDefault();
-    showSection($(this).attr("href"), true);
-});
-
-$(window).scroll(function () {
-    checkSection();
-});
-
 // Smooth Scrolling and Section Tracking
 document.addEventListener('DOMContentLoaded', function () {
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // Smooth scroll for anchor links (gallery links are handled separately below)
+    document.querySelectorAll('a[href^="#"]:not(.inline-gallery-link)').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+
+            // Menu links point to #sectionN, which maps to [data-section="sectionN"]
+            const id = href.substring(1);
+            const target = document.getElementById(id) ||
+                document.querySelector(`.section[data-section="${id}"]`);
             if (target) {
                 target.scrollIntoView({ behavior: 'smooth' });
             }
@@ -310,6 +293,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Active section tracking
     const sections = document.querySelectorAll('.section');
     const menuItems = document.querySelectorAll('.main-menu li');
+    if (menuItems.length) menuItems[0].classList.add('active');
 
     window.addEventListener('scroll', function () {
         let current = '';
@@ -424,21 +408,9 @@ document.addEventListener('DOMContentLoaded', function () {
     galleryLinks.forEach(link => {
         link.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
-            if (href.startsWith('#')) {
-                // If it points to a gallery item, try to find its category and filter
-                const targetId = href.substring(1);
-                const targetItem = document.getElementById(targetId);
-                if (targetItem) {
-                    const category = targetItem.getAttribute('data-category');
-                    const categoryBtn = document.querySelector(`.filter-btn[data-filter="${category}"]`);
-                    if (categoryBtn && !categoryBtn.classList.contains('active')) {
-                        categoryBtn.click();
-                        // Wait for filter animation/pagination before scrolling
-                        setTimeout(() => {
-                            targetItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        }, 100);
-                    }
-                }
+            if (href.startsWith('#') && href.length > 1) {
+                e.preventDefault();
+                window.showGalleryItem(href.substring(1));
             }
         });
     });

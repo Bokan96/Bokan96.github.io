@@ -34,7 +34,7 @@
         { text: "Hello! I am an interactive terminal representing Bojan's codebase.", delay: 300 },
         { text: "I can show you actual code from his projects." },
         { text: " " },
-        { text: "Choose from which project would you like to see some snippets:", class: "text-yellow", prompt: true }
+        { text: "Which project's code would you like to see?", class: "text-yellow", prompt: true }
     ];
 
     const SNIPPETS = {
